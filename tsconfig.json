@@ -2,11 +2,13 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "allowJs": false,
+		// significant perf increase by skipping checking .d.ts files, particularly those in node_modules. Recommended by TS
     "skipLibCheck": true,
+		// stricter type-checking. Recommended by TS
     "strict": true,
+		"importHelpers": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -14,6 +16,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitReturns": true,
+    "noEmit": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
     "plugins": [
       {
         "name": "next"
