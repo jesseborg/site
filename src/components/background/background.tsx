@@ -4,7 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useMemo, useRef } from 'react';
 import { Mesh, Vector2 } from 'three';
 
-import fragmentShader from '../../shaders/background.glsl';
+import fragmentShader from '@/shaders/background.glsl';
 
 function AnimatedGrid() {
 	const meshRef = useRef<Mesh>(null);
