@@ -3,18 +3,13 @@ precision highp float;
 uniform float iTime;
 uniform vec2 iResolution;
 
-uniform float dotsRadius;
+uniform float dotsSize;
 uniform float dotsSpacing;
 uniform float perlinScale;
 uniform float perlinSpeed;
 
 const vec4 WHITE = vec4(255.0, 255.0, 255.0, 1.0);
 const vec4 BLACK = vec4(0.0, 0.0, 0.0, 1.0);
-
-// Distance in pixels
-float circleDist(vec2 p, vec2 center) {
-	return distance(center, p) - dotsRadius;
-}
 
 float whiteNoise(vec4 pos, float evolve) {
 	// Loop the evolution (over a very long period of time).
@@ -58,7 +53,7 @@ float perlinNoise(vec3 pos) {
 		),
 		blend.y
 	);
-	return 0.1 + 0.5 * (noiseVal / 0.7); // normalize to about [-1..1]
+	return 0.5 + 5.0 * (noiseVal / 0.7); // normalize to about [-1..1]
 }
 
 float blendOverlay(float base, float blend) {
@@ -85,15 +80,23 @@ void main() {
 	vec2 uv = gl_FragCoord.xy / iResolution.xy;
 	
 	// Dots
-	vec2 center = dotsSpacing * floor(gl_FragCoord.xy / dotsSpacing) + dotsSpacing / 100.0;
-	vec4 dotColor = mix(WHITE, BLACK, clamp(circleDist(gl_FragCoord.xy, center), 0.0, 1.0));
-	vec4 dots = mix(dotColor, BLACK, 0.1 * distance(uv, vec2(0.5)));
+	vec2 point = (floor(gl_FragCoord.xy / dotsSpacing) + 0.5) * dotsSpacing;
+	float radius = length(gl_FragCoord.xy - point) / dotsSize;
+	vec4 dots = vec4(vec3((1.0 - pow(radius, dotsSpacing))), 1.0);
 	
 	// Perlin Noise
 	float pNoise = perlinNoise(vec3(uv * perlinScale, iTime / perlinSpeed));
 	vec3 perlinDots = blendDarken(vec3(dots), vec3(pNoise));
-	vec3 wNoise = vec3(whiteNoise(gl_FragCoord, 1.0));
-	vec3 noiseOverlay = blendOverlay(perlinDots, wNoise);
 
-	gl_FragColor = vec4(noiseOverlay, 1.0);
+	// White Noise on Perlin Dots
+	vec3 wNoise = vec3(whiteNoise(gl_FragCoord, 1.0));
+	// vec3 noiseOverlay = mix(perlinDots, wNoise, -1.0 + pNoise);
+	vec3 noiseOverlay = mix(perlinDots, wNoise, 0.5);
+
+	// White Noise Overlay
+	vec3 wNoise2 = vec3(whiteNoise(gl_FragCoord, 1.0));
+	vec3 finalOverlay = blendOverlay(wNoise2 * 0.80, noiseOverlay);
+
+	// gl_FragColor = dots;
+	gl_FragColor = vec4(finalOverlay, 1.0);
 }
