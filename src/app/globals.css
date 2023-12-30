@@ -3,25 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+		rgb(var(--background-start-rgb));
+}
+
+@layer base {
+	.main {
+		&::before {
+			content: '';
+			@apply absolute left-0 top-0 -z-10 hidden h-full flex-1 bg-gradient-to-r from-black to-transparent sm:block;
+		}
+		&::after {
+			content: '';
+			@apply absolute right-0 top-0 -z-10 hidden h-full w-64 bg-gradient-to-l from-black to-transparent sm:block;
+		}
+	}
+}
+
+@layer components {
+	.ping {
+		@apply relative mr-2 h-1 w-1 rounded-full bg-green-400;
+
+		&::before {
+			content: '';
+			@apply absolute h-full w-full animate-ping rounded-full bg-green-400 [--ping-duration:2s] [--ping-scale:4];
+		}
+	}
+}
+
+@layer utilities {
+	.rendering-pixelated {
+		image-rendering: pixelated;
+	}
 }
