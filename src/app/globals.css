@@ -23,26 +23,27 @@ body {
 }
 
 @layer base {
-	.main {
-		&::before {
-			content: '';
-			@apply absolute left-0 top-0 -z-10 hidden h-full flex-1 bg-gradient-to-r from-black to-transparent sm:block;
-		}
-		&::after {
-			content: '';
-			@apply absolute right-0 top-0 -z-10 hidden h-full w-64 bg-gradient-to-l from-black to-transparent sm:block;
-		}
+	.main::before {
+		content: '';
+		@apply absolute left-0 top-0 -z-10 hidden h-full flex-1 bg-gradient-to-r from-black to-transparent sm:block;
+	}
+	.main::after {
+		content: '';
+		@apply absolute right-0 top-0 -z-10 hidden h-full w-64 bg-gradient-to-l from-black to-transparent sm:block;
+	}
+
+	.ping::before {
+		@apply animate-ping [--ping-duration:2s] [--ping-scale:4];
 	}
 }
 
 @layer components {
 	.ping {
 		@apply relative mr-2 h-1 w-1 rounded-full bg-green-400;
-
-		&::before {
-			content: '';
-			@apply absolute h-full w-full animate-ping rounded-full bg-green-400 [--ping-duration:2s] [--ping-scale:4];
-		}
+	}
+	.ping::before {
+		content: '';
+		@apply absolute inset-0 rounded-full bg-inherit;
 	}
 }
 
