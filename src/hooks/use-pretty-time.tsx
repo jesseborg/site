@@ -14,8 +14,9 @@ export const usePrettyTime = () => {
 	}, []);
 
 	return today.toLocaleTimeString('en', {
-		hour: 'numeric',
+		timeZone: 'Australia/Queensland',
 		hour12: true,
+		hour: 'numeric',
 		minute: 'numeric',
 		second: 'numeric'
 	});
