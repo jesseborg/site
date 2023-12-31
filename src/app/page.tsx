@@ -4,9 +4,12 @@ import { Background } from '@/components/background/background';
 import { SuitcaseIcon } from '@/components/icons/suitcase-icon';
 import { TerminalIcon } from '@/components/icons/terminal-icon';
 import { Section } from '@/components/section';
+import { usePrettyTime } from '@/hooks/use-pretty-time';
 import Image from 'next/image';
 
 export default function Home() {
+	const prettyTime = usePrettyTime();
+
 	return (
 		<div className="flex h-[100svh] justify-center">
 			<Background />
@@ -24,7 +27,7 @@ export default function Home() {
 								aria-hidden
 								className="mx-3 flex-1 self-center border-neutral-600 mix-blend-lighten"
 							/>
-							<p>9:15:00 PM</p>
+							<p suppressHydrationWarning>{prettyTime}</p>
 						</div>
 						<div className="relative">
 							<Image
