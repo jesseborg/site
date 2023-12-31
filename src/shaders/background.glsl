@@ -7,6 +7,7 @@ uniform float dotsSize;
 uniform float dotsSpacing;
 uniform float perlinScale;
 uniform float perlinSpeed;
+uniform float opacity;
 
 const vec4 WHITE = vec4(255.0, 255.0, 255.0, 1.0);
 const vec4 BLACK = vec4(0.0, 0.0, 0.0, 1.0);
@@ -98,5 +99,5 @@ void main() {
 	vec3 finalOverlay = blendOverlay(wNoise2 * 0.80, noiseOverlay);
 
 	// gl_FragColor = dots;
-	gl_FragColor = vec4(finalOverlay, 1.0);
+	gl_FragColor = vec4(finalOverlay * opacity, 1.0);
 }
