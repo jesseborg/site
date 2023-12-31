@@ -41,7 +41,7 @@ function AnimatedGrid() {
 
 export function Background() {
 	return (
-		<div className="pointer-events-none absolute inset-0 -z-10 opacity-50">
+		<div className="pointer-events-none absolute inset-0 -z-10 opacity-40">
 			<Canvas>
 				<AnimatedGrid />
 			</Canvas>
