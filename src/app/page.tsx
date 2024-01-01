@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 export default function Home() {
 	return (
-		<main className="px-6 pt-8 sm:pt-16 md:px-0">
+		<main className="px-6 pb-16 pt-8 sm:pb-32 sm:pt-16 md:px-0">
 			<article className="mx-auto flex max-w-[640px] flex-col">
 				<div className="flex flex-col gap-3 font-mono text-xs">
 					<div className="flex items-center">
