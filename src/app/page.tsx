@@ -3,6 +3,7 @@
 import { Background } from '@/components/background/background';
 import { SuitcaseIcon } from '@/components/icons/suitcase-icon';
 import { TerminalIcon } from '@/components/icons/terminal-icon';
+import { ProjectCard } from '@/components/project-card';
 import { Section } from '@/components/section';
 import { usePrettyTime } from '@/hooks/use-pretty-time';
 import Image from 'next/image';
@@ -69,10 +70,30 @@ export default function Home() {
 							</Section.Header>
 
 							<Section.Body className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-								<h1>Hello World</h1>
-								<h1>Hello World</h1>
-								<h1>Hello World</h1>
-								<h1>Hello World</h1>
+								<ProjectCard
+									src="/images/projects/pbsrmoto.png"
+									title="Pit Bikes Spares &amp; Repairs"
+									description="ecommerce store"
+									href="/projects/pbsrmoto"
+								/>
+								<ProjectCard
+									src="/images/projects/pbsrmoto.png"
+									title="Pit Bikes Spares &amp; Repairs"
+									description="ecommerce store"
+									href="/projects/pbsrmoto"
+								/>
+								<ProjectCard
+									src="/images/projects/pbsrmoto.png"
+									title="Pit Bikes Spares &amp; Repairs"
+									description="ecommerce store"
+									href="/projects/pbsrmoto"
+								/>
+								<ProjectCard
+									src="/images/projects/pbsrmoto.png"
+									title="Pit Bikes Spares &amp; Repairs"
+									description="ecommerce store"
+									href="/projects/pbsrmoto"
+								/>
 							</Section.Body>
 						</Section.Root>
 

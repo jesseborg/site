@@ -1,5 +1,3 @@
-'use client';
-
 import { AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren } from 'react';
 
 function Root({ children }: PropsWithChildren<{}>) {
