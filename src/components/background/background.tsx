@@ -63,7 +63,7 @@ function AnimatedGrid() {
 
 export function Background() {
 	return (
-		<div className="pointer-events-none absolute -z-10 h-full w-full opacity-40">
+		<div className="background pointer-events-none absolute -z-10 h-[max(100vh,100%)] w-full opacity-40">
 			<Canvas>
 				<AnimatedGrid />
 			</Canvas>

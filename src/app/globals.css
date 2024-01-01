@@ -23,13 +23,13 @@ body {
 }
 
 @layer base {
-	.main::before {
+	.background::before {
 		content: '';
-		@apply absolute left-0 top-0 -z-10 hidden h-full flex-1 bg-gradient-to-r from-black to-transparent sm:block;
+		@apply absolute left-0 top-0 z-10 hidden h-full w-64 flex-1 bg-gradient-to-r from-black to-transparent sm:block;
 	}
-	.main::after {
+	.background::after {
 		content: '';
-		@apply absolute right-0 top-0 -z-10 hidden h-full w-64 bg-gradient-to-l from-black to-transparent sm:block;
+		@apply absolute right-0 top-0 z-10 hidden h-full w-64 bg-gradient-to-l from-black to-transparent sm:block;
 	}
 
 	.ping::before {
