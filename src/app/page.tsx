@@ -10,7 +10,7 @@ import Image from 'next/image';
 
 export default function Home() {
 	return (
-		<div className="flex h-[100svh] justify-center">
+		<div className="relative flex justify-center">
 			<Background />
 
 			<div className="flex w-full">

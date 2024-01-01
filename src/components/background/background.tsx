@@ -1,27 +1,26 @@
 'use client';
 
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { IUniform, Mesh, ShaderMaterial, Vector2 } from 'three';
 
 import fragmentShader from '@/shaders/background.glsl';
 
-const DEFAULT_UNIFORMS = {
-	iTime: { value: 0.0 },
-	iResolution: { value: new Vector2(window.innerWidth, window.innerHeight) },
-	dotsSize: { value: 2.0 },
-	dotsSpacing: { value: 11.0 },
-	perlinScale: { value: 2.0 },
-	perlinSpeed: { value: 8.0 },
-	opacity: { value: 0.0 }
-} satisfies Record<string, IUniform>;
-
-type DefaultUniforms = typeof DEFAULT_UNIFORMS;
-type ShaderMaterialWithUniforms = ShaderMaterial & { uniforms: DefaultUniforms };
-type MeshRef = Mesh<any, ShaderMaterialWithUniforms>;
-
 function AnimatedGrid() {
-	const meshRef = useRef<MeshRef>(null);
+	const defaultUniforms = useMemo(
+		() =>
+			({
+				iTime: { value: 0.0 },
+				dotsSize: { value: 2.0 },
+				dotsSpacing: { value: 11.0 },
+				perlinScale: { value: 2.0 },
+				perlinSpeed: { value: 8.0 },
+				opacity: { value: 0.0 }
+			}) satisfies Record<string, IUniform>,
+		[]
+	);
+
+	const meshRef = useRef<Mesh<any, ShaderMaterial & { uniforms: typeof defaultUniforms }>>(null);
 
 	const [shaderLoaded, setShaderLoaded] = useState(false);
 
@@ -51,7 +50,10 @@ function AnimatedGrid() {
 		<mesh ref={meshRef} scale={[window.innerWidth, window.innerHeight, 1]}>
 			<planeGeometry />
 			<shaderMaterial
-				uniforms={DEFAULT_UNIFORMS}
+				uniforms={{
+					...defaultUniforms,
+					iResolution: { value: new Vector2(document.body.scrollWidth, document.body.scrollHeight) }
+				}}
 				fragmentShader={fragmentShader}
 				onBeforeCompile={() => setShaderLoaded(true)}
 			/>
@@ -61,7 +63,7 @@ function AnimatedGrid() {
 
 export function Background() {
 	return (
-		<div className="pointer-events-none absolute inset-0 -z-10 opacity-40">
+		<div className="pointer-events-none absolute -z-10 h-full w-full opacity-40">
 			<Canvas>
 				<AnimatedGrid />
 			</Canvas>
