@@ -1,9 +1,7 @@
 import { Background } from '@/components/background/background';
+import { inter, interDisplay } from '@/styles/fonts';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'Jesse Borg',
@@ -13,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" className="relative">
-			<body className={inter.className}>
+			<body className={`${inter.variable} ${interDisplay.variable} font-sans`}>
 				<Background />
 				{children}
 			</body>

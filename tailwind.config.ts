@@ -8,6 +8,11 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				'sans': ['var(--font-inter)'],
+				'sans-display': ['var(--font-inter-display)'],
+				'mono': ['var(--font-roboto-mono)']
+			},
 			keyframes: {
 				'background-pulse': {
 					from: { opacity: '0.75' },

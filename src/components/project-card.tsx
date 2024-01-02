@@ -29,7 +29,7 @@ export function ProjectCard(props: ProjectCardProps) {
 
 				<div
 					className={
-						'absolute bottom-0 left-0 z-10 w-full p-4 duration-200 ease-in-out will-change-transform group-hover:-translate-y-[2px]'
+						'font-sans-display absolute bottom-0 left-0 z-10 w-full p-4 duration-200 ease-in-out will-change-transform group-hover:-translate-y-[2px]'
 					}
 				>
 					<p className="text-sm font-medium leading-6 text-neutral-50">{props.title}</p>
