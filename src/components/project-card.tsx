@@ -14,18 +14,24 @@ export function ProjectCard(props: ProjectCardProps) {
 			href={props.href}
 			rel="noreferrer"
 		>
-			<div className="relative min-h-[230px] w-full min-w-[284px] overflow-hidden rounded-[10px]">
+			<div className="relative w-full overflow-hidden rounded-lg">
 				<span className="fade-overlay">
-					<Image
-						className="rendering-pixelated w-full object-fill transition-all duration-200 ease-in-out [filter:grayscale(1)] group-hover:[filter:grayscale(0)]"
-						src={props.src}
-						alt={props.title}
-						width={284}
-						height={230}
-					/>
+					<span className="halftone">
+						<Image
+							className="rendering-pixelated w-full object-fill transition-all duration-200 ease-in-out [filter:grayscale(1)] group-hover:[filter:grayscale(0)]"
+							src={props.src}
+							alt={props.title}
+							width={308}
+							height={230}
+						/>
+					</span>
 				</span>
 
-				<div className="absolute bottom-0 left-0 z-10 w-full p-4 duration-200 ease-in-out will-change-transform group-hover:-translate-y-[2px]">
+				<div
+					className={
+						'absolute bottom-0 left-0 z-10 w-full p-4 duration-200 ease-in-out will-change-transform group-hover:-translate-y-[2px]'
+					}
+				>
 					<p className="text-sm font-medium leading-6 text-neutral-50">{props.title}</p>
 					<p className="text-sm font-normal leading-[9px] text-neutral-300">{props.description}</p>
 				</div>

@@ -60,7 +60,7 @@ export default function Home() {
 							<Section.Title>projects</Section.Title>
 							<Section.Link href="/projects">see more -&gt;</Section.Link>
 						</Section.Header>
-						<Section.Body className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+						<Section.Body className="grid grid-cols-1 gap-2 sm:grid-cols-2">
 							<ProjectCard
 								src="/images/projects/pbsrmoto.png"
 								title="Pit Bikes Spares &amp; Repairs"
@@ -68,15 +68,15 @@ export default function Home() {
 								href="/projects/pbsrmoto"
 							/>
 							<ProjectCard
-								src="/images/projects/pbsrmoto.png"
-								title="Pit Bikes Spares &amp; Repairs"
-								description="ecommerce store"
-								href="/projects/pbsrmoto"
+								src="/images/projects/spotify-widget.png"
+								title="Spotify Widget"
+								description="lightweight widget for controlling Spotify"
+								href="/projects/spotify-widget"
 							/>
 							<ProjectCard
-								src="/images/projects/pbsrmoto.png"
-								title="Pit Bikes Spares &amp; Repairs"
-								description="ecommerce store"
+								src="/images/projects/timeseed.png"
+								title="TimeSeed"
+								description="tiny pomodoro app"
 								href="/projects/pbsrmoto"
 							/>
 							<ProjectCard
