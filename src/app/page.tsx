@@ -1,11 +1,23 @@
 'use client';
 
-import { SuitcaseIcon } from '@/components/icons/suitcase-icon';
-import { TerminalIcon } from '@/components/icons/terminal-icon';
+import {
+	FigmaIcon,
+	NextIcon,
+	PrismaIcon,
+	ReactIcon,
+	RustIcon,
+	SuitcaseIcon,
+	TailwindIcon,
+	TauriIcon,
+	TerminalIcon,
+	TypeScriptIcon,
+	VSCodeIcon
+} from '@/components/icons';
 import { ProjectCard } from '@/components/project-card';
 import { Section } from '@/components/section';
 import { usePrettyTime } from '@/hooks/use-pretty-time';
 import Image from 'next/image';
+import { PropsWithChildren } from 'react';
 
 export default function Home() {
 	return (
@@ -94,13 +106,47 @@ export default function Home() {
 							</Section.Icon>
 							<Section.Title>stack</Section.Title>
 						</Section.Header>
-						<Section.Body>
-							<h1>Hello World</h1>
+						<Section.Body className="flex gap-2">
+							<StackIcon>
+								<FigmaIcon />
+							</StackIcon>
+							<StackIcon>
+								<VSCodeIcon />
+							</StackIcon>
+							<StackIcon>
+								<TypeScriptIcon />
+							</StackIcon>
+							<StackIcon>
+								<RustIcon />
+							</StackIcon>
+							<StackIcon>
+								<ReactIcon />
+							</StackIcon>
+							<StackIcon>
+								<TailwindIcon />
+							</StackIcon>
+							<StackIcon>
+								<TauriIcon />
+							</StackIcon>
+							<StackIcon>
+								<PrismaIcon />
+							</StackIcon>
+							<StackIcon>
+								<NextIcon />
+							</StackIcon>
 						</Section.Body>
 					</Section.Root>
 				</div>
 			</article>
 		</main>
+	);
+}
+
+function StackIcon({ children }: PropsWithChildren<{}>) {
+	return (
+		<div className="rounded-md border-[0.5px] border-white/10 bg-neutral-900 p-[6px]">
+			{children}
+		</div>
 	);
 }
 
