@@ -10,8 +10,7 @@ const config: Config = {
 		extend: {
 			fontFamily: {
 				'sans': ['var(--font-inter)'],
-				'sans-display': ['var(--font-inter-display)'],
-				'mono': ['var(--font-roboto-mono)']
+				'sans-display': ['var(--font-inter-display)']
 			},
 			keyframes: {
 				'background-pulse': {
