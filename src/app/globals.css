@@ -23,13 +23,14 @@ body {
 }
 
 @layer base {
-	.background::before {
-		content: '';
-		@apply absolute left-0 top-0 z-10 hidden h-full w-64 flex-1 bg-gradient-to-r from-black to-transparent sm:block;
-	}
 	.background::after {
 		content: '';
-		@apply absolute right-0 top-0 z-10 hidden h-full w-64 bg-gradient-to-l from-black to-transparent sm:block;
+		/* Default */
+		@apply absolute inset-0 hidden [--bg-color:black] [--percent:20%] lg:block;
+		/* Gradient */
+		@apply bg-[linear-gradient(90deg,var(--bg-color)_var(--percent),transparent_40%,transparent_60%,var(--bg-color)_calc(100%-var(--percent)))];
+		/* Breakpoints */
+		@apply lg:[--percent:5%] xl:[--percent:15%] 2xl:[--percent:25%];
 	}
 
 	.ping::before {
