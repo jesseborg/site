@@ -58,19 +58,23 @@ body {
 	}
 
 	.halftone::after {
-		--color: #4a4a4a;
-		background-image: linear-gradient(45deg, var(--color) 25%, transparent 25%),
-			linear-gradient(-45deg, var(--color) 25%, transparent 25%),
-			linear-gradient(45deg, transparent 75%, var(--color) 75%),
-			linear-gradient(-45deg, transparent 75%, var(--color) 75%);
-		background-size: 2px 2px;
-		background-position:
-			0 0,
-			1px 0,
-			1px -1px,
-			0px 1px;
 		content: '';
-		@apply absolute inset-0 -rotate-12 scale-[1.5] opacity-50;
+
+		--base-size: 50%;
+		--dots-size: calc(var(--base-size) / 2);
+		background: radial-gradient(#525252 var(--dots-size), transparent var(--dots-size)),
+			radial-gradient(
+				farthest-corner at 70% 80%,
+				#737373 calc(var(--dots-size) / 2),
+				transparent calc(var(--dots-size) / 2)
+			),
+			radial-gradient(
+				farthest-corner at 15% 20%,
+				#d6d6d6 calc(var(--dots-size) / 2),
+				transparent calc(var(--dots-size) / 2)
+			);
+		background-size: 4px 4px;
+		@apply absolute inset-0 -left-1/2 -top-1/2 h-[200%] w-[200%] -rotate-12 opacity-50;
 	}
 
 	.fade-overlay::after {
