@@ -4,16 +4,15 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-	title: 'Jesse Borg',
-	description: ''
+	title: 'Jesse Borg'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" className="relative">
-			<body className={`${inter.variable} ${interDisplay.variable} font-sans`}>
+			<body className={`${inter.variable} ${interDisplay.variable} overflow-x-hidden font-sans`}>
 				<Background />
-				{children}
+				<main className="px-8 pb-16 pt-8 sm:pb-32 sm:pt-16">{children}</main>
 			</body>
 		</html>
 	);

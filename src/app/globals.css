@@ -23,6 +23,10 @@ body {
 }
 
 @layer base {
+	.icon-right-hook-arrow::before {
+		content: '\21AA';
+	}
+
 	.background::after {
 		content: '';
 		/* Default */

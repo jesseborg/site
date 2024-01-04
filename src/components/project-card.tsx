@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 type ProjectCardProps = {
 	src: string;
@@ -9,7 +10,7 @@ type ProjectCardProps = {
 
 export function ProjectCard(props: ProjectCardProps) {
 	return (
-		<a
+		<Link
 			className="group rounded-xl border border-white/30 bg-neutral-900 p-1 transition-colors duration-200 hover:border-white/40"
 			href={props.href}
 			rel="noreferrer"
@@ -36,6 +37,6 @@ export function ProjectCard(props: ProjectCardProps) {
 					<p className="text-sm font-normal leading-[9px] text-neutral-300">{props.description}</p>
 				</div>
 			</div>
-		</a>
+		</Link>
 	);
 }
