@@ -6,9 +6,9 @@ export default function ProjectPage() {
 		<div className="mx-auto w-fit">
 			<div className="relative grid grid-cols-1 gap-6 lg:grid-cols-[1fr_640px_1fr]">
 				<nav className="left-0 top-12 mb-0 mr-6 h-fit pt-2 sm:sticky">
-					<Link className="flex text-sm italic" href="/">
+					<Link className="group flex text-sm italic text-neutral-200 hover:text-white" href="/">
 						<span className="icon-right-hook-arrow mr-2 inline-block rotate-180 pt-px" />
-						Home
+						<span className="group-hover:underline">Home</span>
 					</Link>
 				</nav>
 				<article className="flex max-w-[640px] flex-col gap-4 ">
