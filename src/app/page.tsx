@@ -16,6 +16,7 @@ import {
 import { ProjectCard } from '@/components/project-card';
 import { Section } from '@/components/section';
 import { usePrettyTime } from '@/hooks/use-pretty-time';
+import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import { PropsWithChildren } from 'react';
 
@@ -102,34 +103,34 @@ export default function Home() {
 						<Section.Icon>
 							<TerminalIcon />
 						</Section.Icon>
-						<Section.Title>stack</Section.Title>
+						<Section.Title>what i use</Section.Title>
 					</Section.Header>
 					<Section.Body className="flex gap-2">
-						<StackIcon>
+						<StackIcon tooltip="Figma">
 							<FigmaIcon />
 						</StackIcon>
-						<StackIcon>
+						<StackIcon tooltip="VSCode">
 							<VSCodeIcon />
 						</StackIcon>
-						<StackIcon>
+						<StackIcon tooltip="TypeScript">
 							<TypeScriptIcon />
 						</StackIcon>
-						<StackIcon>
+						<StackIcon tooltip="Rust">
 							<RustIcon />
 						</StackIcon>
-						<StackIcon>
+						<StackIcon tooltip="React">
 							<ReactIcon />
 						</StackIcon>
-						<StackIcon>
+						<StackIcon tooltip="Tailwind">
 							<TailwindIcon />
 						</StackIcon>
-						<StackIcon>
+						<StackIcon tooltip="Tauri">
 							<TauriIcon />
 						</StackIcon>
-						<StackIcon>
+						<StackIcon tooltip="Prisma">
 							<PrismaIcon />
 						</StackIcon>
-						<StackIcon>
+						<StackIcon tooltip="NextJS">
 							<NextIcon />
 						</StackIcon>
 					</Section.Body>
@@ -139,9 +140,15 @@ export default function Home() {
 	);
 }
 
-function StackIcon({ children }: PropsWithChildren<{}>) {
+function StackIcon({ tooltip, children }: PropsWithChildren<{ tooltip?: string }>) {
 	return (
-		<div className="rounded-md border-[0.5px] border-white/10 bg-neutral-900 p-[6px]">
+		<div
+			aria-label={tooltip}
+			data-tooltip={tooltip}
+			className={cn('rounded-md border-[0.5px] border-white/10 bg-neutral-900 p-[6px]', {
+				tooltip: !!tooltip
+			})}
+		>
 			{children}
 		</div>
 	);
