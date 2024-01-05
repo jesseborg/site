@@ -28,11 +28,21 @@ body {
 	}
 
 	.background::after {
+		--fade-color: black;
+		--percent: 20%;
+
 		content: '';
+		background-image: linear-gradient(
+				90deg,
+				var(--fade-color) var(--percent),
+				transparent 40%,
+				transparent 60%,
+				var(--fade-color) calc(100% - var(--percent))
+			),
+			linear-gradient(transparent 80%, transparent 80%, var(--fade-color) 100%);
+
 		/* Default */
-		@apply absolute inset-0 hidden [--bg-color:black] [--percent:20%] lg:block;
-		/* Gradient */
-		@apply bg-[linear-gradient(90deg,var(--bg-color)_var(--percent),transparent_40%,transparent_60%,var(--bg-color)_calc(100%-var(--percent)))];
+		@apply absolute inset-0 hidden lg:block;
 		/* Breakpoints */
 		@apply lg:[--percent:5%] xl:[--percent:15%] 2xl:[--percent:25%];
 	}
