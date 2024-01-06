@@ -1,5 +1,4 @@
-'use client';
-
+import { CurrentTime } from '@/components/current-time';
 import {
 	FigmaIcon,
 	NextIcon,
@@ -15,12 +14,14 @@ import {
 } from '@/components/icons';
 import { ProjectCard } from '@/components/project-card';
 import { Section } from '@/components/section';
-import { usePrettyTime } from '@/hooks/use-pretty-time';
+import { getProjects } from '@/db/projects';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import { PropsWithChildren } from 'react';
 
 export default function Home() {
+	const projects = getProjects();
+
 	return (
 		<article className="mx-auto flex max-w-[640px] flex-col">
 			<div className="flex flex-col gap-3 font-mono text-xs">
@@ -72,30 +73,17 @@ export default function Home() {
 						<Section.Link href="/projects">see more -&gt;</Section.Link>
 					</Section.Header>
 					<Section.Body className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-						<ProjectCard
-							src="/images/projects/pbsrmoto.png"
-							title="Pit Bikes Spares &amp; Repairs"
-							description="ecommerce store"
-							href="/projects/pbsrmoto"
-						/>
-						<ProjectCard
-							src="/images/projects/spotify-widget.png"
-							title="Spotify Widget"
-							description="lightweight widget for controlling Spotify"
-							href="/projects/spotify-widget"
-						/>
-						<ProjectCard
-							src="/images/projects/timeseed.png"
-							title="TimeSeed"
-							description="tiny pomodoro app"
-							href="/projects/pbsrmoto"
-						/>
-						<ProjectCard
-							src="/images/projects/pbsrmoto.png"
-							title="Pit Bikes Spares &amp; Repairs"
-							description="ecommerce store"
-							href="/projects/pbsrmoto"
-						/>
+						{projects.map((project) => {
+							return (
+								<ProjectCard
+									key={project.slug}
+									src={project.metadata.thumbnail}
+									title={project.metadata.title}
+									description={project.metadata.description}
+									href={`/projects/${project.slug}`}
+								/>
+							);
+						})}
 					</Section.Body>
 				</Section.Root>
 				<Section.Root>
@@ -152,9 +140,4 @@ function StackIcon({ tooltip, children }: PropsWithChildren<{ tooltip?: string }
 			{children}
 		</div>
 	);
-}
-
-function CurrentTime() {
-	const prettyTime = usePrettyTime();
-	return <p suppressHydrationWarning>{prettyTime}</p>;
 }
