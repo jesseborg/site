@@ -1,3 +1,4 @@
+import { MDXComponent } from '@/components/mdx';
 import { getProject } from '@/db/projects';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -43,8 +44,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 						<h2 className="text-lg font-medium">{project.metadata.title}</h2>
 						<time className="text-xs text-neutral-400">{date.toString()}</time>
 					</div>
-					<div className="text-sm font-light leading-5 tracking-[-0.28px] text-neutral-100">
-						{project.content}
+					<div className="prose text-sm font-light leading-5 tracking-[-0.28px] text-neutral-100">
+						<MDXComponent source={project.content} />
 					</div>
 				</article>
 			</div>
