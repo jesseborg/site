@@ -52,3 +52,19 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 		</div>
 	);
 }
+
+export async function generateMetadata({ params }: ProjectPageProps) {
+	const project = getProject(params.slug);
+
+	if (!project) {
+		return;
+	}
+
+	return {
+		title: project.metadata.title,
+		metadataBase: new URL('https://acme.com'),
+		openGraph: {
+			url: `/projects/${project.slug}`
+		}
+	};
+}

@@ -4,7 +4,21 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-	title: 'Jesse Borg'
+	title: 'Jesse Borg',
+	description: 'todo',
+	metadataBase: new URL('https://acme.com'),
+	alternates: {
+		canonical: '/'
+	},
+	openGraph: {
+		type: 'website',
+		images: '/og.png',
+		url: '/'
+	},
+	robots: {
+		index: true,
+		follow: true
+	}
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
