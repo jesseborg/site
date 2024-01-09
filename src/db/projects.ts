@@ -10,6 +10,12 @@ export type ProjectMetadata = {
 	publishedAt: string;
 };
 
+export type Project = {
+	metadata: ProjectMetadata;
+	slug: string;
+	content: string;
+};
+
 function getMDXFiles(dir: string) {
 	return readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
 }
@@ -23,14 +29,14 @@ export function getProjects() {
 	const dir = path.join(process.cwd(), 'src/content/projects');
 	let mdxFiles = getMDXFiles(dir);
 
-	const files = mdxFiles.map((file) => {
+	const files = mdxFiles.map((file): Project => {
 		const { data, content } = readMDXFile(path.join(dir, file));
 		const slug = path.basename(file, path.extname(file));
 		return {
 			metadata: data as ProjectMetadata,
 			slug,
 			content
-		};
+		} satisfies Project;
 	});
 
 	if (files.length === 1) {
