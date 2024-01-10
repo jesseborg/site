@@ -12,7 +12,7 @@ export default function Home() {
 	const projects = getProjects();
 
 	return (
-		<article className="mx-auto flex max-w-2xl flex-col">
+		<article className="mx-auto flex max-w-2xl flex-col gap-8">
 			<div className="flex flex-col gap-3 font-mono text-xs">
 				<div className="flex items-center">
 					<span aria-hidden className="ping" />
@@ -33,7 +33,7 @@ export default function Home() {
 					/>
 					<Image
 						draggable={false}
-						className="rendering-pixelated relative mx-auto w-[90%] -translate-y-1/2"
+						className="rendering-pixelated relative mx-auto -mt-8 w-[90%]"
 						src="/images/name.png"
 						alt="My name 'Jesse Borg' gradually getting more pixelated with each letter"
 						width={572}
