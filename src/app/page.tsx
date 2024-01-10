@@ -88,7 +88,7 @@ export default function Home() {
 						</Section.Icon>
 						<Section.Title>what i use</Section.Title>
 					</Section.Header>
-					<Section.Body className="flex gap-2">
+					<Section.Body className="flex flex-wrap gap-2">
 						<StackIcon tooltip="Figma" />
 						<StackIcon tooltip="VSCode" />
 						<StackIcon tooltip="TypeScript" />
