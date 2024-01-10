@@ -1,17 +1,5 @@
 import { CurrentTime } from '@/components/current-time';
-import {
-	FigmaIcon,
-	NextIcon,
-	PrismaIcon,
-	ReactIcon,
-	RustIcon,
-	SuitcaseIcon,
-	TailwindIcon,
-	TauriIcon,
-	TerminalIcon,
-	TypeScriptIcon,
-	VSCodeIcon
-} from '@/components/icons';
+import { SuitcaseIcon, TerminalIcon } from '@/components/icons';
 import { ProjectCard } from '@/components/project-card';
 import { Section } from '@/components/section';
 import { getProjects } from '@/db/projects';
@@ -101,32 +89,17 @@ export default function Home() {
 						<Section.Title>what i use</Section.Title>
 					</Section.Header>
 					<Section.Body className="flex gap-2">
-						<StackIcon tooltip="Figma">
-							<FigmaIcon />
-						</StackIcon>
-						<StackIcon tooltip="VSCode">
-							<VSCodeIcon />
-						</StackIcon>
-						<StackIcon tooltip="TypeScript">
-							<TypeScriptIcon />
-						</StackIcon>
-						<StackIcon tooltip="Rust">
-							<RustIcon />
-						</StackIcon>
-						<StackIcon tooltip="React">
-							<ReactIcon />
-						</StackIcon>
-						<StackIcon tooltip="Tailwind">
-							<TailwindIcon />
-						</StackIcon>
-						<StackIcon tooltip="Tauri">
-							<TauriIcon />
-						</StackIcon>
-						<StackIcon tooltip="Prisma">
-							<PrismaIcon />
-						</StackIcon>
+						<StackIcon tooltip="Figma" />
+						<StackIcon tooltip="VSCode" />
+						<StackIcon tooltip="TypeScript" />
+						<StackIcon tooltip="Rust" />
+						<StackIcon tooltip="React" />
+						<StackIcon tooltip="Tailwind" />
+						<StackIcon tooltip="Tauri" />
+						<StackIcon tooltip="Prisma" />
 						<StackIcon tooltip="NextJS">
-							<NextIcon />
+							{/* eslint-disable-next-line @next/next/no-img-element */}
+							<img alt="Next.js logo" src="/nextjs.svg" width="16" height="16" />
 						</StackIcon>
 					</Section.Body>
 				</Section.Root>
@@ -140,10 +113,15 @@ function StackIcon({ tooltip, children }: PropsWithChildren<{ tooltip?: string }
 		<div
 			aria-label={tooltip}
 			data-tooltip={tooltip}
-			className={cn('rounded-md border-[0.5px] border-white/10 bg-neutral-900 p-[6px]', {
+			className={cn('rounded-md border-[0.5px] border-white/10 bg-neutral-900 p-[6px] text-white', {
 				tooltip: !!tooltip
 			})}
 		>
+			{!Boolean(children) && (
+				<svg role="img" width="16" height="16">
+					<use href={`/sprites.svg#${tooltip?.toLowerCase()}`} />
+				</svg>
+			)}
 			{children}
 		</div>
 	);
