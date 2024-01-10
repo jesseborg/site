@@ -1,4 +1,5 @@
-import { AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren } from 'react';
+import NextLink from 'next/link';
+import { ComponentProps, HTMLAttributes, PropsWithChildren } from 'react';
 
 function Root({ children }: PropsWithChildren<{}>) {
 	return <section className="flex flex-col gap-4">{children}</section>;
@@ -12,11 +13,11 @@ function Icon({ children }: PropsWithChildren<{}>) {
 	return <span>{children}</span>;
 }
 
-function Link({ children, ...props }: PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>) {
+function Link({ children, ...props }: PropsWithChildren<ComponentProps<typeof NextLink>>) {
 	return (
-		<a className="text-xs font-light italic" {...props}>
+		<NextLink className="text-xs font-light italic" {...props}>
 			{children}
-		</a>
+		</NextLink>
 	);
 }
 
