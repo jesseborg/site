@@ -118,6 +118,6 @@ img {
 		@apply absolute left-1/2 top-1 z-50 w-max -translate-x-1/2 -translate-y-full;
 		@apply rounded-md border-[0.5px] border-white/20;
 		@apply pointer-events-none bg-zinc-800 p-2 text-xs leading-[10px] text-neutral-200 opacity-0;
-		@apply transition-all delay-100;
+		@apply transition-all delay-0 sm:delay-100;
 	}
 }
