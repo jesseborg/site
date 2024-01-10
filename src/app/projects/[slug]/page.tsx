@@ -23,7 +23,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 	});
 
 	return (
-		<article className="flex max-w-[640px] flex-col gap-4 ">
+		<article className="flex flex-col gap-4 ">
 			<Image
 				className="w-full rounded-xl shadow-2xl shadow-black"
 				src={project.metadata.header}
@@ -35,7 +35,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 				<h2 className="text-lg font-medium">{project.metadata.title}</h2>
 				<time className="text-xs text-neutral-400">{date.toString()}</time>
 			</div>
-			<div className="prose text-sm font-light leading-5 tracking-[-0.28px] text-neutral-100">
+			<div className="prose max-w-none text-sm font-light leading-5 tracking-[-0.28px] text-neutral-100">
 				<MDXComponent source={project.content} />
 			</div>
 		</article>

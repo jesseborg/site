@@ -19,7 +19,7 @@ export default function ProjectsPage() {
 
 	return (
 		<div className="flex flex-col gap-4 pt-1.5">
-			<h1>Projects</h1>
+			<h1 className="font-bold">Projects</h1>
 			<div className="group/parent flex flex-col focus-within:text-neutral-400 hover:text-neutral-400">
 				{projects.map((project) => (
 					<ProjectListItem key={project.slug} project={project} />
@@ -43,7 +43,7 @@ function ProjectListItem({ project }: { project: Project }) {
 			key={project.slug}
 		>
 			<p>{project.metadata.title}</p>
-			<p className="-ml-2 text-neutral-400 group-focus-within/link:!text-neutral-400 group-focus-within/parent:text-neutral-500 group-hover/link:!text-neutral-400 group-hover/parent:text-neutral-500">
+			<p className="-ml-2 hidden text-neutral-400 group-focus-within/link:!text-neutral-400 group-focus-within/parent:text-neutral-500 group-hover/link:!text-neutral-400 group-hover/parent:text-neutral-500 sm:block">
 				{project.metadata.description}
 			</p>
 			<hr className="flex-1 self-center border-neutral-700 bg-inherit group-hover/link:border-neutral-600" />
