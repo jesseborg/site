@@ -17,13 +17,14 @@ import { Section } from '@/components/section';
 import { getProjects } from '@/db/projects';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
 export default function Home() {
 	const projects = getProjects();
 
 	return (
-		<article className="mx-auto flex max-w-[640px] flex-col">
+		<article className="mx-auto flex max-w-2xl flex-col">
 			<div className="flex flex-col gap-3 font-mono text-xs">
 				<div className="flex items-center">
 					<span aria-hidden className="ping" />
@@ -36,6 +37,7 @@ export default function Home() {
 				</div>
 				<div className="relative">
 					<Image
+						className="w-full"
 						src="/images/header.png"
 						alt="Monochromatic image of a bunch of leaves with a halftone effect applied"
 						width={640}
@@ -43,25 +45,30 @@ export default function Home() {
 					/>
 					<Image
 						draggable={false}
-						className="rendering-pixelated relative mx-auto w-[89.5%] -translate-y-1/2"
+						className="rendering-pixelated relative mx-auto w-[90%] -translate-y-1/2"
 						src="/images/name.png"
-						alt="My name gradually getting more pixelated with each letter"
+						alt="My name 'Jesse Borg' gradually getting more pixelated with each letter"
 						width={572}
 						height={108}
 					/>
 				</div>
 			</div>
 			<div className="flex flex-col gap-8 text-base">
-				<div className="text-sm leading-6 -tracking-[0.2px] text-neutral-100 [&_span]:text-neutral-400">
+				<div className="prose leading-6 -tracking-[0.2px] text-neutral-300 dark:prose-invert [&_span]:text-neutral-400">
 					<p>
-						I&apos;m currently a hobbyist <span>web developer</span> looking for work in{' '}
-						<span>front-end development</span>, with a growing interest in back-end and software
-						development.
+						I&apos;m a hobbyist web developer looking for work in front-end development, with a
+						growing interest in back-end and software development.
 					</p>
-					<br />
 					<p>
-						Recently I&apos;ve been learning <span>Rust</span> in my free time to create desktop
-						apps with the <span>Tauri</span> framework.
+						Recently I&apos;ve been learning{' '}
+						<Link target="_blank" href="https://rust-lang.org">
+							Rust
+						</Link>{' '}
+						in my free time to create desktop apps with the{' '}
+						<Link target="_blank" href="https://tauri.app">
+							Tauri
+						</Link>{' '}
+						framework.
 					</p>
 				</div>
 				<Section.Root>

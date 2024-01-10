@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 :root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
-	}
+	--foreground-rgb: 255, 255, 255;
+	--background-start-rgb: 0, 0, 0;
+	--background-end-rgb: 0, 0, 0;
 }
 
 body {
 	color: rgb(var(--foreground-rgb));
 	background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
 		rgb(var(--background-start-rgb));
+}
+
+::selection {
+	@apply bg-neutral-700 text-white;
+}
+
+img {
+	@apply select-none;
 }
 
 @layer base {
@@ -49,6 +49,10 @@ body {
 
 	.ping::before {
 		@apply animate-ping [--ping-duration:2s] [--ping-scale:4];
+	}
+
+	.prose a {
+		@apply font-medium text-white underline decoration-neutral-500 decoration-2 underline-offset-2 transition-colors hover:decoration-neutral-200;
 	}
 }
 
