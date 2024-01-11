@@ -15,7 +15,10 @@ function Icon({ children }: PropsWithChildren<{}>) {
 
 function Link({ children, ...props }: PropsWithChildren<ComponentProps<typeof NextLink>>) {
 	return (
-		<NextLink className="text-xs font-light italic" {...props}>
+		<NextLink
+			className="font-lightitalic rounded-sm text-xs text-neutral-300 hover:text-neutral-100 focus-visible:text-neutral-100"
+			{...props}
+		>
 			{children}
 		</NextLink>
 	);

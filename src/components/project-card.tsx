@@ -11,7 +11,7 @@ type ProjectCardProps = {
 export function ProjectCard(props: ProjectCardProps) {
 	return (
 		<Link
-			className="group rounded-xl border border-white/30 bg-neutral-900 p-1 outline-none transition-colors duration-200 hover:border-white/40 focus-visible:border-2 focus-visible:border-neutral-300"
+			className="group rounded-xl border border-white/30 bg-neutral-900 p-1 transition-colors duration-200 hover:border-white/40 focus-visible:border-2 focus-visible:border-neutral-300 focus-visible:outline-0"
 			href={props.href}
 			rel="noreferrer"
 		>

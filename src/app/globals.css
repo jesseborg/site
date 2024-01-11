@@ -18,6 +18,10 @@ body {
 		rgb(var(--background-start-rgb));
 }
 
+:focus-visible {
+	@apply outline outline-2 outline-neutral-300;
+}
+
 ::selection {
 	@apply bg-neutral-700 text-white;
 }
@@ -109,21 +113,5 @@ img {
 		content: '';
 		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.9) 140%);
 		@apply absolute inset-0;
-	}
-
-	.tooltip {
-		@apply relative;
-	}
-
-	.tooltip:hover::after {
-		@apply -top-2 opacity-100;
-	}
-
-	.tooltip::after {
-		content: attr(data-tooltip);
-		@apply absolute left-1/2 top-1 z-50 w-max -translate-x-1/2 -translate-y-full;
-		@apply rounded-md border-[0.5px] border-white/20;
-		@apply pointer-events-none bg-zinc-800 p-2 text-xs leading-[10px] text-neutral-200 opacity-0;
-		@apply transition-all delay-0 sm:delay-100;
 	}
 }

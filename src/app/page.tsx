@@ -2,8 +2,8 @@ import { CurrentTime } from '@/components/current-time';
 import { SuitcaseIcon, TerminalIcon } from '@/components/icons';
 import { ProjectCard } from '@/components/project-card';
 import { Section } from '@/components/section';
+import { Tooltip } from '@/components/tooltip';
 import { getProjects } from '@/db/projects';
-import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PropsWithChildren, ReactNode } from 'react';
@@ -95,15 +95,15 @@ export default function Home() {
 						<Section.Title>what i use</Section.Title>
 					</Section.Header>
 					<Section.Body className="flex flex-wrap gap-2">
-						<StackIcon tooltip="Figma" />
-						<StackIcon tooltip="VSCode" />
-						<StackIcon tooltip="TypeScript" />
-						<StackIcon tooltip="Rust" />
-						<StackIcon tooltip="React" />
-						<StackIcon tooltip="Tailwind" />
-						<StackIcon tooltip="Tauri" />
-						<StackIcon tooltip="Prisma" />
-						<StackIcon tooltip="NextJS">
+						<StackIcon href="https://figma.com" tooltip="Figma" />
+						<StackIcon href="https://code.visualstudio.com" tooltip="VSCode" />
+						<StackIcon href="https://www.typescriptlang.org" tooltip="TypeScript" />
+						<StackIcon href="https://rust-lang.org" tooltip="Rust" />
+						<StackIcon href="https://www.typescriptlang.org" tooltip="React" />
+						<StackIcon href="https://tailwindcss.com" tooltip="Tailwind" />
+						<StackIcon href="https://tauri.app" tooltip="Tauri" />
+						<StackIcon href="https://www.prisma.io" tooltip="Prisma" />
+						<StackIcon href="https://nextjs.org" tooltip="NextJS">
 							{/* eslint-disable-next-line @next/next/no-img-element */}
 							<img alt="Next.js logo" src="/nextjs.svg" width="16" height="16" />
 						</StackIcon>
@@ -122,26 +122,32 @@ function Badge({ href, children }: { href: string; children: ReactNode }) {
 			className="not-prose inline-flex items-baseline gap-1 rounded-md border border-neutral-700 bg-neutral-800 px-1.5 py-1 text-sm text-white outline-offset-0 transition-colors hover:border-neutral-600 hover:bg-neutral-700 focus-visible:border-neutral-600 focus-visible:bg-neutral-700 [&>svg]:self-center"
 		>
 			{children}
-			<p className="icon-north-east-arrow self-start text-xs text-neutral-300" />
+			<span className="icon-north-east-arrow self-start text-xs [&::before]:text-neutral-300" />
 		</Link>
 	);
 }
 
-function StackIcon({ tooltip, children }: PropsWithChildren<{ tooltip?: string }>) {
+function StackIcon({
+	href,
+	tooltip,
+	children
+}: PropsWithChildren<{ href: string; tooltip: string }>) {
 	return (
-		<div
-			aria-label={tooltip}
-			data-tooltip={tooltip}
-			className={cn('rounded-md border-[0.5px] border-white/10 bg-neutral-900 p-[6px] text-white', {
-				tooltip: !!tooltip
-			})}
-		>
-			{!Boolean(children) && (
-				<svg role="img" width="16" height="16">
-					<use href={`/sprites.svg#${tooltip?.toLowerCase()}`} />
-				</svg>
-			)}
-			{children}
-		</div>
+		<Tooltip tooltip={tooltip}>
+			<Link
+				target="_blank"
+				href={href}
+				className={
+					'rounded-md border-[0.5px] border-white/10 bg-neutral-900 p-[6px] text-white outline-offset-0 hover:bg-neutral-800'
+				}
+			>
+				{!Boolean(children) && (
+					<svg role="img" width="16" height="16">
+						<use href={`/sprites.svg#${tooltip?.toLowerCase()}`} />
+					</svg>
+				)}
+				{children}
+			</Link>
+		</Tooltip>
 	);
 }
