@@ -4,6 +4,7 @@ import { ProjectCard } from '@/components/project-card';
 import { Section } from '@/components/section';
 import { Tooltip } from '@/components/tooltip';
 import { getProjects } from '@/db/projects';
+import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PropsWithChildren, ReactNode } from 'react';
@@ -73,7 +74,10 @@ export default function Home() {
 						<Section.Title>projects</Section.Title>
 						<Section.Link href="/projects">see more -&gt;</Section.Link>
 					</Section.Header>
-					<Section.Body className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+					<Section.Body className="relative grid grid-cols-1 gap-2 sm:grid-cols-2">
+						<NoiseGlow className="left-0 top-0 h-72 w-72 -translate-x-1/3 -translate-y-6" />
+						<NoiseGlow className="right-0 top-1/2 h-96 w-32 -translate-y-1/2 translate-x-1/2" />
+						<NoiseGlow className="bottom-0 h-32 w-full translate-y-2/4" />
 						{projects.map((project) => {
 							return (
 								<ProjectCard
@@ -151,5 +155,16 @@ function StackIcon({
 				{children}
 			</Link>
 		</Tooltip>
+	);
+}
+
+function NoiseGlow({ className }: { className: string }) {
+	return (
+		<span
+			className={cn(
+				'absolute -z-10 bg-[url(/noise.png)] [mask-image:radial-gradient(black_30%,transparent_80%)]',
+				className
+			)}
+		/>
 	);
 }
