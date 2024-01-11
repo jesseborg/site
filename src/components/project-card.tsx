@@ -19,7 +19,7 @@ export function ProjectCard(props: ProjectCardProps) {
 				<span className="fade-overlay">
 					<span className="halftone">
 						<Image
-							className="rendering-pixelated w-full object-fill transition-all duration-200 ease-in-out [filter:grayscale(1)] group-hover:[filter:grayscale(0)] group-focus-visible:[filter:grayscale(0)]"
+							className="rendering-pixelated w-full object-fill transition-all duration-200 ease-in-out [filter:grayscale(1)] group-hover:transition-none group-hover:[filter:grayscale(0)] group-focus-visible:[filter:grayscale(0)]"
 							src={props.src}
 							alt={props.title}
 							width={308}
