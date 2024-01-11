@@ -31,6 +31,11 @@ img {
 		content: '\21AA';
 	}
 
+	.icon-north-east-arrow::before {
+		content: '\2197';
+		@apply font-sans-display;
+	}
+
 	.background::after {
 		--fade-color: black;
 		--percent: 20%;
@@ -55,9 +60,9 @@ img {
 		@apply animate-ping [--ping-duration:2s] [--ping-scale:4];
 	}
 
-	.prose a {
+	/* .prose a {
 		@apply font-medium text-white underline decoration-neutral-500 decoration-2 underline-offset-2 transition-colors hover:decoration-neutral-200;
-	}
+	} */
 }
 
 @layer components {
