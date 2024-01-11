@@ -60,7 +60,7 @@ img {
 		@apply absolute inset-0;
 		/* Breakpoints */
 		@apply lg:[--percent:5%] xl:[--percent:15%] 2xl:[--percent:25%];
-		@apply [--percent:0%] [--middle-percent:30%] sm:[--middle-percent:10%] sm:[--percent:20%];
+		@apply [--middle-percent:30%] [--percent:0%] sm:[--middle-percent:10%] sm:[--percent:20%];
 	}
 
 	.ping::before {

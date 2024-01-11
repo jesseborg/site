@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={`${inter.variable} ${interDisplay.variable} overflow-x-hidden font-sans`}>
 				<Background />
 				<Providers>
-					<main className="px-8 pb-16 pt-8 sm:pb-32 sm:pt-16">{children}</main>
+					<main className="overflow-x-hidden px-8 pb-16 pt-8 sm:pb-32 sm:pt-16">{children}</main>
 				</Providers>
 			</body>
 		</html>
