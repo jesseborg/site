@@ -29,6 +29,7 @@ img {
 @layer base {
 	.icon-right-hook-arrow::before {
 		content: '\21AA';
+		@apply font-sans-display text-xs;
 	}
 
 	.icon-north-east-arrow::before {
