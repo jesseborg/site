@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 export function Providers({ children }: { children: ReactNode }) {
 	return (
 		<>
-			<TooltipProvider>{children}</TooltipProvider>;
+			<TooltipProvider>{children}</TooltipProvider>
 		</>
 	);
 }
