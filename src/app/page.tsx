@@ -13,7 +13,7 @@ export default function Home() {
 	const projects = getProjects();
 
 	return (
-		<article className="mx-auto flex max-w-2xl flex-col gap-8">
+		<article className="mx-auto flex max-w-2xl flex-col gap-8 overflow-x-hidden">
 			<div className="flex flex-col gap-3 font-mono text-xs">
 				<div className="flex items-center">
 					<span aria-hidden className="ping" />
