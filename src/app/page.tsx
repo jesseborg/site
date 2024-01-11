@@ -162,7 +162,7 @@ function NoiseGlow({ className }: { className: string }) {
 	return (
 		<span
 			className={cn(
-				'absolute -z-10 bg-[url(/noise.png)] [mask-image:radial-gradient(black_30%,transparent_80%)]',
+				'rendering-pixelated absolute -z-10 bg-[url(/noise.png)] [mask-image:radial-gradient(black_30%,transparent_80%)]',
 				className
 			)}
 		/>
