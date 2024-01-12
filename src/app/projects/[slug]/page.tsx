@@ -23,14 +23,17 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 	});
 
 	return (
-		<article className="flex flex-col gap-4 ">
-			<Image
-				className="w-full rounded-xl shadow-2xl shadow-black"
-				src={project.metadata.header}
-				alt="Project Header"
-				width={640}
-				height={170}
-			/>
+		<article className="flex flex-col gap-4">
+			<span className="halftone pointer-events-none relative overflow-hidden rounded-xl after:blur-[0.5px]">
+				<Image
+					className="pointer-events-auto w-full shadow-2xl shadow-black"
+					src={project.metadata.header}
+					alt="Project Header"
+					width={640}
+					height={170}
+					quality={100}
+				/>
+			</span>
 			<div className="flex flex-col gap-0.5">
 				<h2 className="text-lg font-medium">{project.metadata.title}</h2>
 				<time className="text-xs text-neutral-400">{date.toString()}</time>
