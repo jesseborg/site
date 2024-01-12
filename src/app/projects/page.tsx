@@ -40,7 +40,7 @@ function ProjectListItem({ project }: { project: Project }) {
 		<Link
 			href={{
 				pathname: `/projects/${project.slug}`,
-				query: { ref: 'projects' }
+				query: { nav: 'projects' }
 			}}
 			className="group/link -mx-2 flex gap-3 rounded-sm px-2 py-4 text-sm outline-2 outline-offset-4 outline-neutral-100 transition-colors focus-within:text-neutral-100 hover:text-neutral-100 hover:transition-none focus-visible:outline"
 			key={project.slug}

@@ -3,16 +3,23 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
-const routes = [
-	{ href: '/', name: 'Home' },
-	{ href: '/projects', name: 'Projects' }
-];
+type RouteParams = {
+	href: string;
+	name: string;
+};
+
+type Routes = 'home' | 'projects';
+
+const routes: Record<Routes, RouteParams> = {
+	home: { href: '/', name: 'Home' },
+	projects: { href: '/projects', name: 'Projects' }
+};
 
 export default function PageLayout({ children }: { children: React.ReactNode }) {
 	const searchParams = useSearchParams();
-	const ref = searchParams.get('ref');
+	const nav = searchParams.get('nav')?.toLowerCase() as Routes;
 
-	const path = routes.find((link) => link.href.slice(1) === ref) ?? routes[0]!;
+	const path = routes[nav] ?? routes.home;
 
 	return (
 		<div className="relative mx-auto grid max-w-2xl gap-6 lg:max-w-fit lg:grid-cols-[120px_672px_120px]">
