@@ -26,6 +26,7 @@ export default function Home() {
 				</div>
 				<div className="relative">
 					<Image
+						priority
 						className="w-full"
 						src="/images/header.png"
 						alt="Monochromatic image of a bunch of leaves with a halftone effect applied"
@@ -141,6 +142,7 @@ function StackIcon({
 	return (
 		<Tooltip tooltip={tooltip}>
 			<Link
+				aria-label={`Icon for ${tooltip}`}
 				target="_blank"
 				href={href}
 				className={
@@ -162,7 +164,7 @@ function NoiseGlow({ className }: { className: string }) {
 	return (
 		<span
 			className={cn(
-				'rendering-pixelated absolute -z-10 bg-[url(/noise.png)] [mask-image:radial-gradient(black_30%,transparent_80%)]',
+				'rendering-pixelated absolute -z-10 bg-[url(/noise.webp)] [mask-image:radial-gradient(black_30%,transparent_80%)]',
 				className
 			)}
 		/>
