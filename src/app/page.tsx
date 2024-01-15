@@ -73,7 +73,12 @@ export default function Home() {
 							<SuitcaseIcon />
 						</Section.Icon>
 						<Section.Title>projects</Section.Title>
-						<Section.Link href="/projects">see more -&gt;</Section.Link>
+						<Section.Link className="group relative inline-flex gap-1" href="/projects">
+							see more{' '}
+							<div className="transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
+								-&gt;
+							</div>
+						</Section.Link>
 					</Section.Header>
 					<Section.Body className="relative grid grid-cols-1 gap-2 sm:grid-cols-2">
 						<NoiseGlow className="left-0 top-0 h-72 w-72 -translate-x-1/3 -translate-y-6" />
