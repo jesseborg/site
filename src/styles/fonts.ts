@@ -18,4 +18,9 @@ const interDisplay = localFont({
 	variable: '--font-inter-display'
 });
 
-export { inter, interDisplay };
+const satoshi = localFont({
+	src: './Satoshi-Variable.woff2',
+	variable: '--font-satoshi'
+});
+
+export { inter, interDisplay, satoshi };

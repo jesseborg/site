@@ -1,3 +1,4 @@
+import { cn } from '@/utils/cn';
 import NextLink from 'next/link';
 import { ComponentProps, HTMLAttributes, PropsWithChildren } from 'react';
 
@@ -13,10 +14,17 @@ function Icon({ children }: PropsWithChildren<{}>) {
 	return <span>{children}</span>;
 }
 
-function Link({ children, ...props }: PropsWithChildren<ComponentProps<typeof NextLink>>) {
+function Link({
+	className,
+	children,
+	...props
+}: PropsWithChildren<ComponentProps<typeof NextLink>>) {
 	return (
 		<NextLink
-			className="font-lightitalic rounded-sm text-xs text-neutral-300 hover:text-neutral-100 focus-visible:text-neutral-100"
+			className={cn(
+				'font-lightitalic rounded-sm text-xs text-neutral-300 hover:text-neutral-100 focus-visible:text-neutral-100',
+				className
+			)}
 			{...props}
 		>
 			{children}

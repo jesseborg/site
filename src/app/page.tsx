@@ -7,7 +7,7 @@ import { getProjects } from '@/db/projects';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
 export default function Home() {
 	const projects = getProjects();
@@ -46,25 +46,8 @@ export default function Home() {
 			<div className="flex flex-col gap-8 text-base">
 				<div className="prose leading-6 -tracking-[0.2px] text-neutral-300 dark:prose-invert [&>span]:text-neutral-400">
 					<p>
-						I&apos;m a hobbyist web developer looking for work in front-end development, with a
-						growing interest in back-end and software development.
-					</p>
-					<p className="leading-7">
-						{"Recently I've been learning "}
-						<Badge href="https://rust-lang.org">
-							<svg role="img" width="16" height="16">
-								<use href="/sprites.svg#rust" />
-							</svg>
-							Rust
-						</Badge>
-						{' in my free time to create desktop apps with the '}
-						<Badge href="https://tauri.app">
-							<svg role="img" width="16" height="16">
-								<use href="/sprites.svg#tauri" />
-							</svg>
-							Tauri
-						</Badge>
-						{' framework.'}
+						I&apos;m a hobbyist web developer looking for work in front-end development, focused on
+						creating beautiful user interfaces and writing clean code.
 					</p>
 				</div>
 				<Section.Root>
@@ -121,21 +104,6 @@ export default function Home() {
 				</Section.Root>
 			</div>
 		</article>
-	);
-}
-
-function Badge({ href, children }: { href: string; children: ReactNode }) {
-	return (
-		<Link
-			target="_blank"
-			href={href}
-			className="not-prose group inline-flex items-baseline gap-1 rounded-md border border-neutral-700 bg-neutral-800 px-1.5 py-1 text-sm text-white outline-offset-0 transition-colors hover:border-neutral-600 hover:bg-neutral-700 focus-visible:border-neutral-600 focus-visible:bg-neutral-700 [&>svg]:self-center"
-		>
-			{children}
-			<span className="relative -top-0.5 origin-center font-sans-display text-xs text-neutral-300 transition-transform group-hover:-rotate-12 group-focus-visible:-rotate-12">
-				&#x2197;
-			</span>
-		</Link>
 	);
 }
 

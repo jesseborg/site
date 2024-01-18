@@ -34,11 +34,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 					quality={100}
 				/>
 			</span>
-			<div className="flex flex-col gap-0.5">
-				<h2 className="text-lg font-medium">{project.metadata.title}</h2>
+			<div className="mb-6 flex flex-col gap-0.5">
+				<h1 className="text-lg font-medium">{project.metadata.title}</h1>
 				<time className="text-xs text-neutral-400">{date.toString()}</time>
 			</div>
-			<div className="prose max-w-none text-sm font-light leading-5 tracking-[-0.28px] text-neutral-100">
+			<div className="prose max-w-none font-light leading-snug text-neutral-100 dark:prose-invert">
 				<MDXComponent source={project.content} />
 			</div>
 		</article>

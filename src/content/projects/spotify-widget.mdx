@@ -6,8 +6,36 @@ thumbnail: /images/projects/spotify-widget-thumbnail.png
 publishedAt: 2024-01-05
 ---
 
-Lorem ipsum dolor sit amet consectetur. Semper id lacus leo mauris sit et dui elementum at. Quisque metus ut eu donec lectus.
+<div className="flex flex-col items-center gap-2">
+	<SpotifyWidget />
+	<Link className="m-0 text-sm" target="_blank" href="https://github.com/jesseborg/spotify-widget">
+		{'View Source'}
+	</Link>
+</div>
 
-Nibh cras et aliquet facilisis. Nisi egestas condimentum mattis vitae lectus et. Sed ipsum pharetra fermentum posuere molestie ac. In convallis morbi vitae habitant purus egestas condimentum nulla. At ultricies vel non vel mi ac nullam.
+I built this app because I wanted a way to _always_ see and control my Spotify desktop session without having to continually open the large desktop window.
 
-At volutpat eget aliquam vulputate. Cras ac elementum lectus quis eu. Suspendisse pulvinar integer libero amet ut. Nullam mattis enim suspendisse scelerisque auctor. Quisque tempor at rutrum ultrices tortor varius velit semper. Feugiat odio porttitor maecenas elit faucibus suscipit scelerisque pretium. Faucibus tellus vestibulum proin.
+{"It's built with the "}
+
+<Badge href="https://tauri.app">
+	<svg role="img" width="16" height="16">
+		<use href="/sprites.svg#tauri" />
+	</svg>
+	Tauri
+</Badge>
+{' framework using '}
+<Badge href="https://rust-lang.org">
+	<svg role="img" width="16" height="16">
+		<use href="/sprites.svg#rust" />
+	</svg>
+	Rust
+</Badge>
+{' on the backend and'}
+<Badge href="https://react.dev">
+	<svg role="img" width="16" height="16">
+		<use href="/sprites.svg#react" />
+	</svg>
+	React
+</Badge>
+{'for the frontend'}
+It's currently not available for download, but you can try an example of what the UI is like above.
