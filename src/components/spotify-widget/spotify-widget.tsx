@@ -120,13 +120,17 @@ export function SpotifyWidget() {
 		setCurrentTime(event.currentTarget.currentTime * 1000);
 	}
 
-	useEffect(() => {
+	function handleAudioLoaded() {
 		if (!videoRef.current) {
 			return;
 		}
 
 		setIsLoading(false);
-		setDuration(videoRef.current.duration * 1000);
+		setDuration(videoRef.current?.duration * 1000);
+	}
+
+	useEffect(() => {
+		handleAudioLoaded();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [videoRef.current]);
 
@@ -144,6 +148,7 @@ export function SpotifyWidget() {
 				onPause={() => setIsPlaying(false)}
 				onPlay={() => setIsPlaying(true)}
 				onTimeUpdate={handleVideoTimeUpdate}
+				onLoadedData={handleAudioLoaded}
 			/>
 
 			<div className="flex">
@@ -251,8 +256,8 @@ function Thumbnail({ loading = false, src, alt, children }: PropsWithChildren<Th
 				className={cn(
 					'absolute bottom-0 left-0 z-10 flex w-full items-center justify-center py-1 pt-2',
 					'bg-gradient-to-b from-transparent via-widget-700/80 to-widget-800',
-					'animate-slide-out translate-y-full transition-transform [animation-delay:1s]',
-					'group-hover:animate-slide-in group-focus-within:animate-slide-in group-focus-within:delay-0 group-hover:[animation-delay:0] [&[data-active=true]]:translate-y-0'
+					'translate-y-full animate-slide-out transition-transform [animation-delay:1s]',
+					'group-focus-within:animate-slide-in group-focus-within:delay-0 group-hover:animate-slide-in group-hover:[animation-delay:0] [&[data-active=true]]:translate-y-0'
 				)}
 			>
 				{children}
