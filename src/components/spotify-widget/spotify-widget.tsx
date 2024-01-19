@@ -8,6 +8,7 @@ import {
 	CSSProperties,
 	HTMLAttributes,
 	PropsWithChildren,
+	SVGAttributes,
 	SyntheticEvent,
 	useEffect,
 	useRef,
@@ -44,6 +45,19 @@ type Track = {
 		}[];
 	};
 };
+
+const loadingTheme = {
+	'--widget-50': '244 245 250',
+	'--widget-100': '229 229 244',
+	'--widget-200': '209 210 236',
+	'--widget-300': '177 180 223',
+	'--widget-400': '139 142 207',
+	'--widget-500': '114 112 193',
+	'--widget-600': '101 93 179',
+	'--widget-700': '92 80 160',
+	'--widget-800': '82 71 134',
+	'--widget-900': '67 60 108'
+} as CSSProperties;
 
 const tracks: Track[] = [
 	{
@@ -134,9 +148,11 @@ export function SpotifyWidget() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [videoRef.current]);
 
+	const theme = isLoading ? loadingTheme : track.theme;
+
 	return (
 		<div
-			style={track.theme as CSSProperties}
+			style={theme}
 			className={cn(
 				'not-prose h-[84px] w-[364px] overflow-hidden rounded-lg border border-widget-700/80 bg-widget-800/80 p-0.5 font-satoshi text-widget-200 backdrop-blur-sm transition-colors',
 				satoshi.variable
@@ -240,8 +256,9 @@ type ThumbnailProps = {
 function Thumbnail({ loading = false, src, alt, children }: PropsWithChildren<ThumbnailProps>) {
 	if (loading) {
 		return (
-			<div className="relative h-[78px] w-[78px] overflow-hidden rounded-md border border-widget-700">
-				<div className="h-full w-full animate-pulse bg-widget-700" />
+			<div className="relative flex h-[78px] w-[78px] items-center justify-center overflow-hidden rounded-md border border-widget-700">
+				<div className="absolute inset-0 -z-10 h-full w-full bg-gradient-to-br from-[#3f12b8] to-[#7b9287]" />
+				<MusicalNoteIcon className="h-1/2 w-1/2" />
 			</div>
 		);
 	}
@@ -345,6 +362,24 @@ function PlayIcon() {
 			<path
 				fill="currentColor"
 				d="M6 5.468a.5.5 0 0 1 .815-.388l3.398 2.752a.5.5 0 0 1-.006.782l-3.398 2.67A.5.5 0 0 1 6 10.891V5.468Z"
+			/>
+		</svg>
+	);
+}
+
+function MusicalNoteIcon(props: SVGAttributes<SVGElement>) {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			fill="currentColor"
+			className={cn('h-6 w-6', props.className)}
+			{...props}
+		>
+			<path
+				fillRule="evenodd"
+				d="M19.952 1.651a.75.75 0 0 1 .298.599V16.303a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.403-4.909l2.311-.66a1.5 1.5 0 0 0 1.088-1.442V6.994l-9 2.572v9.737a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.402-4.909l2.31-.66a1.5 1.5 0 0 0 1.088-1.442V5.25a.75.75 0 0 1 .544-.721l10.5-3a.75.75 0 0 1 .658.122Z"
+				clipRule="evenodd"
 			/>
 		</svg>
 	);
