@@ -18,7 +18,6 @@ let timeout: NodeJS.Timeout;
 
 export function TimelineSlider({ loading = false, data, onSeek }: TimelineProps) {
 	const [sliderPosition, setSliderPosition] = useState(data.timelinePosition);
-
 	const [isDragging, setIsDragging] = useState(false);
 
 	const commitValue = async (value: number) => {
@@ -28,19 +27,17 @@ export function TimelineSlider({ loading = false, data, onSeek }: TimelineProps)
 		onSeek?.(value);
 	};
 
-	const handleValueChange = (value: number) => {
+	const handleSliderValueChange = (value: number) => {
 		setIsDragging(true);
 		setSliderPosition(value);
 	};
 
-	const handleValueCommit = async (value: number) => {
+	const handleSliderValueCommit = async (value: number) => {
 		if (timeout) {
 			clearTimeout(timeout);
 		}
 
-		timeout = setTimeout(() => {
-			commitValue(value);
-		}, 10);
+		timeout = setTimeout(() => commitValue(value), 10);
 	};
 
 	if (loading) {
@@ -58,8 +55,8 @@ export function TimelineSlider({ loading = false, data, onSeek }: TimelineProps)
 					value={[isDragging ? sliderPosition : data.timelinePosition]}
 					max={data.timelineEndTime}
 					step={data.timelineEndTime / Math.round(data.timelineEndTime / 1000)}
-					onValueChange={([value]) => handleValueChange(value!)}
-					onValueCommit={([value]) => handleValueCommit(value!)}
+					onValueChange={([value]) => handleSliderValueChange(value!)}
+					onValueCommit={([value]) => handleSliderValueCommit(value!)}
 				/>
 			</span>
 		</div>
@@ -78,27 +75,16 @@ function Skeleton() {
 	);
 }
 
-type FormattedTimeProps = {
-	value: number;
-};
-
-function TimeStamp({ value = 0 }: FormattedTimeProps) {
-	return <p className={'transition-all duration-200'}>{formatTime(value)}</p>;
-}
-
-function roundAccurate(value: number, decimalPlaces: number) {
-	return Number(Math.round(Number(value + 'e' + decimalPlaces)) + 'e-' + decimalPlaces);
+function TimeStamp({ value = 0 }: { value: number }) {
+	return <p>{formatTime(value)}</p>;
 }
 
 function getTimeData(value: number) {
 	const timestamp = Number(value) / 100;
 	const minutes = Math.floor(timestamp / 600);
-	const seconds = roundAccurate((timestamp / 10) % 60, 3);
+	const seconds = Math.round((timestamp / 10) % 60);
 
-	return {
-		minutes,
-		seconds
-	};
+	return { minutes, seconds };
 }
 
 function formatTime(value: number) {

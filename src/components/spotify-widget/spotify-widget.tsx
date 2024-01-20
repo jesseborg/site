@@ -14,37 +14,12 @@ import {
 	useRef,
 	useState
 } from 'react';
+import { SpotifyTrackSelector } from './spotify-track-selector';
 import { TimelineSlider } from './timeline-slider';
+import { tracks, type Track } from './tracks';
 import { VolumeSlider } from './volume-slider';
 
 type AudioEvent = SyntheticEvent<HTMLAudioElement, Event>;
-
-type Track = {
-	theme: CSSProperties;
-	uri: string;
-	name: string;
-	coverArt: {
-		url: string;
-	};
-	duration: {
-		totalMilliseconds: number;
-	};
-	previews: {
-		audioPreviews: {
-			items: {
-				url: string;
-			}[];
-		};
-	};
-	artists: {
-		items: {
-			uri: string;
-			profile: {
-				name: string;
-			};
-		}[];
-	};
-};
 
 const loadingTheme = {
 	'--widget-50': '244 245 250',
@@ -59,59 +34,28 @@ const loadingTheme = {
 	'--widget-900': '67 60 108'
 } as CSSProperties;
 
-const tracks: Track[] = [
-	{
-		theme: {
-			'--widget-50': '247 248 237',
-			'--widget-100': '236 240 215',
-			'--widget-200': '219 226 180',
-			'--widget-300': '194 207 135',
-			'--widget-400': '169 186 97',
-			'--widget-500': '140 159 67',
-			'--widget-600': '104 120 48',
-			'--widget-700': '84 97 42',
-			'--widget-800': '68 78 38',
-			'--widget-900': '59 67 36'
-		} as CSSProperties,
-		uri: 'spotify:track:4NsPgRYUdHu2Q5JRNgXYU5',
-		name: 'Sweden',
-		coverArt: {
-			url: '/images/c418-sweden-thumbnail.png'
-		},
-		duration: {
-			totalMilliseconds: 30000 //215500
-		},
-		previews: {
-			audioPreviews: {
-				items: [
-					{
-						url: 'https://p.scdn.co/mp3-preview/d9913e7d4c6d570eb5a99183bf5bea6455184da1'
-					}
-				]
-			}
-		},
-		artists: {
-			items: [
-				{
-					uri: 'spotify:artist:4uFZsG1vXrPcvnZ4iSQyrx',
-					profile: {
-						name: 'C418'
-					}
-				}
-			]
-		}
-	}
-];
+export function SpotifyWidgetContainer() {
+	const [track, setTrack] = useState(tracks[0]!);
 
-export function SpotifyWidget() {
+	return (
+		<div className="space-y-2">
+			<SpotifyWidget track={track} />
+			<SpotifyTrackSelector onChangeTrack={setTrack} />
+		</div>
+	);
+}
+
+export function SpotifyWidget({ track }: { track: Track }) {
 	const videoRef = useRef<HTMLAudioElement | null>(null);
+
 	const [currentTime, setCurrentTime] = useState(0);
 	const [duration, setDuration] = useState(0);
+	const [volume, setVolume] = useState(0.15);
 
-	const [isPlaying, setIsPlaying] = useState(Boolean(videoRef.current?.paused));
+	const [isPlaying, setIsPlaying] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 
-	const track = tracks[0]!;
+	const theme = isLoading ? loadingTheme : track.theme;
 
 	function handleTimelineSeek(value: number) {
 		if (!videoRef.current) {
@@ -119,36 +63,38 @@ export function SpotifyWidget() {
 		}
 
 		const currentTimeSeconds = value / 1000;
-		videoRef.current.currentTime = currentTimeSeconds - 0.1;
+		videoRef.current.currentTime = currentTimeSeconds;
 	}
 
-	const handleVolumeChange = (volume: number) => {
+	function updateVolume(volume: number) {
 		if (!videoRef.current) {
 			return;
 		}
 
 		videoRef.current.volume = volume;
-	};
+		setVolume(volume);
+	}
 
-	function handleVideoTimeUpdate(event: AudioEvent) {
+	function handleAudioTimeUpdate(event: AudioEvent) {
 		setCurrentTime(event.currentTarget.currentTime * 1000);
 	}
 
-	function handleAudioLoaded() {
+	function handleAudioLoadedData() {
 		if (!videoRef.current) {
 			return;
 		}
 
+		updateVolume(volume);
+
+		// setIsPlaying(false);
 		setIsLoading(false);
 		setDuration(videoRef.current?.duration * 1000);
 	}
 
 	useEffect(() => {
-		handleAudioLoaded();
+		handleAudioLoadedData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [videoRef.current]);
-
-	const theme = isLoading ? loadingTheme : track.theme;
 
 	return (
 		<div
@@ -160,11 +106,12 @@ export function SpotifyWidget() {
 		>
 			<audio
 				ref={videoRef}
-				src={track.previews.audioPreviews.items[0]?.url}
+				src={track.previews.audioPreview.url}
+				autoPlay={isPlaying}
 				onPause={() => setIsPlaying(false)}
 				onPlay={() => setIsPlaying(true)}
-				onTimeUpdate={handleVideoTimeUpdate}
-				onLoadedData={handleAudioLoaded}
+				onTimeUpdate={handleAudioTimeUpdate}
+				onLoadedData={handleAudioLoadedData}
 			/>
 
 			<div className="flex">
@@ -197,7 +144,7 @@ export function SpotifyWidget() {
 
 					{/* Volume Slider */}
 					<span className="pl-2">
-						<VolumeSlider loading={isLoading} volume={0.5} onVolumeChange={handleVolumeChange} />
+						<VolumeSlider loading={isLoading} volume={volume} onVolumeChange={updateVolume} />
 					</span>
 				</div>
 			</div>
