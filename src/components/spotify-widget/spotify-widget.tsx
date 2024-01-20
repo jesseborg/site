@@ -35,17 +35,27 @@ const loadingTheme = {
 } as CSSProperties;
 
 export function SpotifyWidgetContainer() {
-	const [track, setTrack] = useState(tracks[0]!);
+	const [trackIndex, setTrackIndex] = useState(0);
 
 	return (
 		<div className="space-y-2">
-			<SpotifyWidget track={track} />
-			<SpotifyTrackSelector onChangeTrack={setTrack} />
+			<SpotifyWidget
+				track={tracks[trackIndex]!}
+				onNextTrack={() => setTrackIndex((i) => (i + 1) % tracks.length)}
+				onPreviousTrack={() => setTrackIndex((i) => (i - 1 + tracks.length) % tracks.length)}
+			/>
+			<SpotifyTrackSelector onChangeTrack={setTrackIndex} />
 		</div>
 	);
 }
 
-export function SpotifyWidget({ track }: { track: Track }) {
+type SpotifyWidgetProps = {
+	track: Track;
+	onNextTrack?: () => void;
+	onPreviousTrack?: () => void;
+};
+
+export function SpotifyWidget({ track, onNextTrack, onPreviousTrack }: SpotifyWidgetProps) {
 	const videoRef = useRef<HTMLAudioElement | null>(null);
 
 	const [currentTime, setCurrentTime] = useState(0);
@@ -124,6 +134,8 @@ export function SpotifyWidget({ track }: { track: Track }) {
 						isPlaying={isPlaying}
 						onPause={() => videoRef.current?.pause()}
 						onPlay={() => videoRef.current?.play()}
+						onNext={onNextTrack}
+						onPrevious={onPreviousTrack}
 					/>
 				</Thumbnail>
 

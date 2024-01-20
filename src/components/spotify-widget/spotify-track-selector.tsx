@@ -3,15 +3,15 @@ import { HTMLAttributes } from 'react';
 import { Track, tracks } from './tracks';
 
 type SpotifyTrackSelectorProps = {
-	onChangeTrack?: (track: Track) => void;
+	onChangeTrack?: (index: number) => void;
 };
 
 export function SpotifyTrackSelector({ onChangeTrack }: SpotifyTrackSelectorProps) {
 	return (
 		<div className="not-prose flex w-full justify-center gap-2 px-2">
-			{tracks.map((track) => (
+			{tracks.map((track, index) => (
 				<TrackSelectorItem
-					onClick={() => onChangeTrack?.(track)}
+					onClick={() => onChangeTrack?.(index)}
 					key={`${track.name} - ${track.artists.items[0]?.profile.name}`}
 					track={track}
 				/>
