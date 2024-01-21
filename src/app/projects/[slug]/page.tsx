@@ -34,7 +34,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 					quality={100}
 				/>
 			</span>
-			<div className="mb-6 flex flex-col gap-0.5">
+			<div className="mb-0 flex flex-col gap-0.5 sm:mb-6">
 				<h1 className="text-lg font-medium">{project.metadata.title}</h1>
 				<time className="text-xs text-neutral-400">{date.toString()}</time>
 			</div>
