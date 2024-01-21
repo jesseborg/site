@@ -10,6 +10,7 @@ function Anchor(
 	return (
 		<a
 			className="border-b-2 border-neutral-100 text-neutral-200 no-underline hover:text-neutral-50"
+			target="_blank"
 			{...props}
 		/>
 	);
