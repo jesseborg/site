@@ -44,13 +44,15 @@ function AnimatedGrid() {
 		}
 	});
 
+	const maxSize = Math.max(document.body.scrollWidth, document.body.scrollHeight);
+
 	return (
 		<mesh ref={meshRef} scale={[window.innerWidth, window.innerHeight, 1]}>
 			<planeGeometry />
 			<shaderMaterial
 				uniforms={{
 					...defaultUniforms,
-					iResolution: { value: new Vector2(document.body.scrollWidth, document.body.scrollHeight) }
+					iResolution: { value: new Vector2(maxSize, maxSize) }
 				}}
 				fragmentShader={backgroundMaterial.fragmentShader}
 				onBeforeCompile={() => setShaderLoaded(true)}
