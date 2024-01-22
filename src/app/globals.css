@@ -18,6 +18,8 @@
 	--widget-700: 92 80 160;
 	--widget-800: 82 71 134;
 	--widget-900: 67 60 108;
+
+	-webkit-tap-highlight-color: transparent;
 }
 
 * {
