@@ -46,9 +46,16 @@ export default function Home() {
 			<div className="flex flex-col gap-8 text-base">
 				<div className="prose leading-6 -tracking-[0.2px] text-neutral-300 dark:prose-invert [&>span]:text-neutral-400">
 					<p>
-						I&apos;m a hobbyist web developer looking for work in front-end development, focused on
-						creating beautiful user interfaces and writing clean code.
+						Hi, I&apos;m Jesse! I&apos;ve been a hobbyist web developer for a while but only
+						recently decided to start pursuing it as a career.
 					</p>
+					<p>
+						I&apos;m mainly looking for work in front-end development, with a focus on creating
+						beautiful<sup>*</sup> user interfaces. However, I also have an interest in back-end
+						development.
+					</p>
+
+					<sub className="block text-neutral-600">*opinion</sub>
 				</div>
 				<Section.Root>
 					<Section.Header>
