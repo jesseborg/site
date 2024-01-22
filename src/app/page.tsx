@@ -38,13 +38,13 @@ export default function Home() {
 						className="rendering-pixelated relative mx-auto -mt-8 w-[90%]"
 						src="/images/name.png"
 						alt="My name 'Jesse Borg' gradually getting more pixelated with each letter"
-						width={572}
-						height={108}
+						width={561}
+						height={65}
 					/>
 				</div>
 			</div>
 			<div className="flex flex-col gap-8 text-base">
-				<div className="prose leading-6 -tracking-[0.2px] text-neutral-300 dark:prose-invert [&>span]:text-neutral-400">
+				<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-neutral-300 dark:prose-invert [&>span]:text-neutral-400">
 					<p>
 						Hi, I&apos;m Jesse! I&apos;ve been a hobbyist web developer for a while but only
 						recently decided to start pursuing it as a career.
@@ -78,7 +78,7 @@ export default function Home() {
 							return (
 								<ProjectCard
 									key={project.slug}
-									src={project.metadata.thumbnail}
+									src={project.metadata.thumbnailURL}
 									title={project.metadata.title}
 									description={project.metadata.description}
 									href={`/projects/${project.slug}`}

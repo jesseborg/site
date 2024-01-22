@@ -51,6 +51,7 @@ export const VolumeSlider = ({
 		<div className="relative h-full w-1">
 			<Slider
 				ref={ref}
+				aria-label="Volume"
 				className="absolute left-1/2 -translate-x-1/2"
 				orientation="vertical"
 				value={[volume]}

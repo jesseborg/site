@@ -52,6 +52,7 @@ export function TimelineSlider({ loading = false, data, onSeek }: TimelineProps)
 			</div>
 			<span className="pointer-events-auto flex h-1 items-center">
 				<Slider
+					aria-label="Seek/Timeline"
 					value={[isDragging ? sliderPosition : data.timelinePosition]}
 					max={data.timelineEndTime}
 					step={data.timelineEndTime / Math.round(data.timelineEndTime / 1000)}

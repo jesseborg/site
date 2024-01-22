@@ -41,6 +41,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(
 				</RadixSlider.Track>
 				{value?.map((_, i) => (
 					<RadixSlider.Thumb
+						aria-label="Slider Thumb"
 						key={i}
 						className={cn(
 							'block h-[10px] w-[10px] rounded-lg bg-widget-100 opacity-0 shadow-widget-500 transition-opacity hover:bg-widget-50 focus:outline-none group-focus-within:opacity-100 group-hover:opacity-100',

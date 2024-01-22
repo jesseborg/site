@@ -1,3 +1,4 @@
+import { dynamicBlurDataURL } from '@/utils/dynamic-blur-data-url';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,7 +9,9 @@ type ProjectCardProps = {
 	href: string;
 };
 
-export function ProjectCard(props: ProjectCardProps) {
+export async function ProjectCard(props: ProjectCardProps) {
+	const blurDataURL = await dynamicBlurDataURL(props.src);
+
 	return (
 		<Link
 			className="group rounded-xl border border-white/30 bg-neutral-900 p-1 transition-colors duration-200 hover:border-white/40 focus-visible:border-2 focus-visible:border-neutral-300 focus-visible:outline-0"
@@ -20,6 +23,9 @@ export function ProjectCard(props: ProjectCardProps) {
 					<span className="halftone">
 						<Image
 							className="rendering-pixelated w-full object-fill transition-all duration-200 ease-in-out [filter:grayscale(1)] group-hover:transition-none group-hover:[filter:grayscale(0)] group-focus-visible:[filter:grayscale(0)]"
+							loading="eager"
+							placeholder="blur"
+							blurDataURL={blurDataURL}
 							src={props.src}
 							alt={props.title}
 							width={308}

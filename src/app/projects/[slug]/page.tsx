@@ -1,5 +1,6 @@
 import { MDXComponent } from '@/components/mdx';
 import { getProject } from '@/db/projects';
+import { dynamicBlurDataURL } from '@/utils/dynamic-blur-data-url';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
@@ -9,12 +10,14 @@ type ProjectPageProps = {
 	};
 };
 
-export default function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({ params }: ProjectPageProps) {
 	const project = getProject(params.slug);
 
 	if (!project) {
 		return notFound();
 	}
+
+	const blurDataURL = await dynamicBlurDataURL(project.metadata.headerURL);
 
 	const date = new Date(project.metadata.publishedAt).toLocaleDateString('en-US', {
 		day: 'numeric',
@@ -27,7 +30,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 			<span className="halftone pointer-events-none relative overflow-hidden rounded-xl after:blur-[0.5px]">
 				<Image
 					className="pointer-events-auto w-full shadow-2xl shadow-black"
-					src={project.metadata.header}
+					loading="eager"
+					placeholder="blur"
+					blurDataURL={blurDataURL}
+					src={project.metadata.headerURL}
 					alt="Project Header"
 					width={640}
 					height={170}

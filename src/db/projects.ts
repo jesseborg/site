@@ -3,11 +3,11 @@ import { readFileSync, readdirSync } from 'node:fs';
 import path from 'path';
 
 export type ProjectMetadata = {
+	publishedAt: string;
 	title: string;
 	description: string;
-	header: string;
-	thumbnail: string;
-	publishedAt: string;
+	headerURL: string;
+	thumbnailURL: string;
 };
 
 export type Project = {

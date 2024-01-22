@@ -254,6 +254,7 @@ function Controls({ isPlaying, onNext, onPause, onPlay, onPrevious }: ControlsPr
 	return (
 		<div className="pointer-events-auto flex">
 			<button
+				aria-label="Previous track"
 				className="flex h-5 w-5 cursor-default flex-col items-center justify-center rounded-sm text-widget-200 outline-none outline-offset-2 transition-colors hover:text-widget-50"
 				onClick={onPrevious}
 			>
@@ -261,6 +262,7 @@ function Controls({ isPlaying, onNext, onPause, onPlay, onPrevious }: ControlsPr
 			</button>
 			{!isPlaying && (
 				<button
+					aria-label="Play track"
 					className="flex h-5 w-5 cursor-default flex-col items-center justify-center rounded-sm text-widget-200 outline-none outline-offset-2 transition-colors hover:text-widget-50"
 					onClick={onPlay}
 				>
@@ -269,6 +271,7 @@ function Controls({ isPlaying, onNext, onPause, onPlay, onPrevious }: ControlsPr
 			)}
 			{isPlaying && (
 				<button
+					aria-label="Pause track"
 					className="flex h-5 w-5 cursor-default flex-col items-center justify-center rounded-sm text-widget-200 outline-none outline-offset-2 transition-colors hover:text-widget-50"
 					onClick={onPause}
 				>
@@ -276,6 +279,7 @@ function Controls({ isPlaying, onNext, onPause, onPlay, onPrevious }: ControlsPr
 				</button>
 			)}
 			<button
+				aria-label="Next track"
 				className="flex h-5 w-5 cursor-default flex-col items-center justify-center rounded-sm text-widget-200 outline-none outline-offset-2 transition-colors hover:text-widget-50"
 				onClick={onNext}
 			>
