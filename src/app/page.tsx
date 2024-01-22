@@ -24,7 +24,7 @@ export default function Home() {
 					/>
 					<CurrentTime />
 				</div>
-				<div className="relative">
+				<div className="relative mb-2 sm:mb-6">
 					<Image
 						priority
 						className="w-full"
@@ -35,7 +35,7 @@ export default function Home() {
 					/>
 					<Image
 						draggable={false}
-						className="rendering-pixelated relative mx-auto -mt-8 w-[90%]"
+						className="rendering-pixelated absolute bottom-0 left-1/2 mx-auto w-[90%] -translate-x-1/2 translate-y-1/2"
 						src="/images/name.png"
 						alt="My name 'Jesse Borg' gradually getting more pixelated with each letter"
 						width={561}
