@@ -46,7 +46,7 @@ export default function Home() {
 			<div className="flex flex-col gap-8 text-base">
 				<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-neutral-300 dark:prose-invert [&>span]:text-neutral-400">
 					<p>
-						Hi, I&apos;m Jesse! I&apos;ve been a hobbyist web developer for a while but only
+						Hi, I&apos;m Jesse! I&apos;ve been a hobbyist web developer for around 2+ years but only
 						recently decided to start pursuing it as a career.
 					</p>
 					<p>
