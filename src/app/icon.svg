@@ -1,15 +1,9 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    @media (prefers-color-scheme: dark) {
-      circle {
-        fill: white;
-      }
-    } 
-    @media (prefers-color-scheme: light) {
-      circle {
-        fill: black;
-      }
-    }
-  </style>
-  <circle cx="16" cy="16" r="8" fill="black"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<rect width="24" height="24" fill="url(#pattern0)"/>
+	<defs>
+		<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+			<use xlink:href="#image0_848_509" transform="scale(0.0416667)"/>
+		</pattern>
+		<image id="image0_848_509" width="24" height="24" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAATlBMVEUAAADHx8fV1dXk5OS7u7usrKzz8/OampqBgYFtbW1aWlolJSVTU1M5OTk2NjZYWFh6eno+Pj5HR0czMzNCQkJRUVFKSkqampqAgICZmZncX8rLAAAAGnRSTlMA/v///v/////7+BrRO/qqqXlZvZca/2w3sTmn3/IAAAEVSURBVHicTZJRtoMgDEQFE5Mgiqil7f43+ia0vjo/HuaGSQSGS4/XE3o9SinLvzkMr3eIIxTpXcr8q37SOLnGcSLb6nEcZ/ffodvTKBqN2Wpdj7s/TUJBVXk7Do/bvjnTFE3RJkZb3d8FbS8SR/SRNflgG/k8V5iPltYVPRYl1N0VSURnJFFA7M2PgUT3oQA4cXlj9wPr2YFheEkco5iwmBJLcUCU1tbUq7W1ZkSsAMoUUIIRXCwcsERUBUAXqOd3AdRhQewHdPjxxZZhztcWaQkxAS1ZM/68+hYgaqnZxxfbAbBF2FFKSd1m0dzvaklOfI3Q/u1neCNdOKfLB8mm8pVavj2GuQJ1Wa6/t9DRfmbo3C/7D2ewDg+V6kyxAAAAAElFTkSuQmCC"/>
+	</defs>
 </svg>
