@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-	--foreground-rgb: 255, 255, 255;
-
 	/* Default Widget Theme (loading) */
 	--widget-50: 244 245 250;
 	--widget-100: 229 229 244;
@@ -25,8 +23,7 @@
 }
 
 body {
-	color: rgb(var(--foreground-rgb));
-	background: black;
+	@apply bg-black text-white;
 }
 
 :focus-visible {
