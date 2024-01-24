@@ -7,24 +7,26 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-	const projects = getProjects();
-
-	if (!projects.length) {
-		return (
-			<div>
-				<h1>No projects found</h1>
-			</div>
-		);
-	}
-
 	return (
 		<div className="flex flex-col gap-4 pt-1.5">
 			<h1 className="font-bold">Projects</h1>
-			<div className="group/parent flex flex-col focus-within:text-neutral-400 hover:text-neutral-400">
-				{projects.map((project) => (
-					<ProjectListItem key={project.slug} project={project} />
-				))}
-			</div>
+			<ProjectsList />
+		</div>
+	);
+}
+
+function ProjectsList() {
+	const projects = getProjects();
+
+	if (!projects.length) {
+		return <p>No projects found...</p>;
+	}
+
+	return (
+		<div className="group/parent flex flex-col focus-within:text-neutral-400 hover:text-neutral-400">
+			{projects.map((project) => (
+				<ProjectListItem key={project.slug} project={project} />
+			))}
 		</div>
 	);
 }
