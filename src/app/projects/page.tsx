@@ -1,4 +1,5 @@
-import { Project, getProjects } from '@/db/projects';
+import { ProjectListItem } from '@/components/project-list-item';
+import { getProjects } from '@/db/projects';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -25,34 +26,16 @@ function ProjectsList() {
 	return (
 		<div className="group/parent flex flex-col focus-within:text-neutral-400 hover:text-neutral-400">
 			{projects.map((project) => (
-				<ProjectListItem key={project.slug} project={project} />
+				<Link
+					key={project.slug}
+					href={{
+						pathname: `/projects/${project.slug}`,
+						query: { nav: 'projects' }
+					}}
+				>
+					<ProjectListItem project={project.metadata} />
+				</Link>
 			))}
 		</div>
-	);
-}
-
-function ProjectListItem({ project }: { project: Project }) {
-	const date = new Date(project.metadata.publishedAt).toLocaleDateString('en-US', {
-		day: 'numeric',
-		month: 'numeric',
-		year: 'numeric'
-	});
-
-	return (
-		<Link
-			href={{
-				pathname: `/projects/${project.slug}`,
-				query: { nav: 'projects' }
-			}}
-			className="group/link -mx-2 flex gap-3 rounded-sm px-2 py-4 text-sm outline-2 outline-offset-4 outline-neutral-100 transition-colors focus-within:text-neutral-100 hover:text-neutral-100 hover:transition-none focus-visible:outline"
-			key={project.slug}
-		>
-			<p>{project.metadata.title}</p>
-			<p className="-ml-2 hidden text-neutral-400 group-focus-within/link:!text-neutral-400 group-focus-within/parent:text-neutral-500 group-hover/link:!text-neutral-400 group-hover/parent:text-neutral-500 sm:block">
-				{project.metadata.description}
-			</p>
-			<hr className="flex-1 self-center border-neutral-700 bg-inherit group-hover/link:border-neutral-600" />
-			<span className="text-sm">{date}</span>
-		</Link>
 	);
 }

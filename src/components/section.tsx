@@ -6,8 +6,10 @@ function Root({ children }: PropsWithChildren<{}>) {
 	return <section className="flex flex-col gap-4">{children}</section>;
 }
 
-function Title({ children }: PropsWithChildren<{}>) {
-	return <p className="flex-1 text-base font-bold italic text-neutral-50">{children}</p>;
+function Title({ children, className }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
+	return (
+		<p className={cn('flex-1 text-base font-bold italic text-neutral-50', className)}>{children}</p>
+	);
 }
 
 function Icon({ children }: PropsWithChildren<{}>) {
@@ -33,7 +35,7 @@ function Link({
 }
 
 function Header({ children }: PropsWithChildren<{}>) {
-	return <div className="flex items-center gap-2">{children}</div>;
+	return <div className="flex items-center gap-4">{children}</div>;
 }
 
 function Body({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {

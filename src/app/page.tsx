@@ -1,13 +1,15 @@
 import { CurrentTime } from '@/components/current-time';
+import { GitHubRepos } from '@/components/github-repos';
 import { SuitcaseIcon, TerminalIcon } from '@/components/icons';
 import { ProjectCard } from '@/components/project-card';
+import { ProjectListItemSkeleton } from '@/components/project-list-item';
 import { Section } from '@/components/section';
 import { Tooltip } from '@/components/tooltip';
 import { getProjects } from '@/db/projects';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, Suspense } from 'react';
 
 export default function Home() {
 	return (
@@ -24,9 +26,10 @@ export default function Home() {
 				</div>
 				<HeaderImage />
 			</div>
-			<div className="flex flex-col gap-8 text-base">
+			<div className="flex flex-col gap-6 text-base">
 				<Introduction />
 				<ProjectsSection />
+				<OpenSourceSection />
 				<TechStackSection />
 			</div>
 		</article>
@@ -85,10 +88,7 @@ function ProjectsSection() {
 				</Section.Icon>
 				<Section.Title>projects</Section.Title>
 				<Section.Link className="group relative inline-flex gap-1" href="/projects">
-					see more{' '}
-					<div className="transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
-						-&gt;
-					</div>
+					see more <AnimatedRightArrow />
 				</Section.Link>
 			</Section.Header>
 			<Section.Body className="relative grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -106,6 +106,36 @@ function ProjectsSection() {
 						/>
 					);
 				})}
+			</Section.Body>
+		</Section.Root>
+	);
+}
+
+function OpenSourceSection() {
+	return (
+		<Section.Root>
+			<Section.Header>
+				<Section.Icon>
+					<Image
+						alt="GitHub Mona loading gif"
+						className="-scale-x-100"
+						src="https://github.githubassets.com/images/mona-loading-dark.gif"
+						width={24}
+						height={24}
+					/>
+				</Section.Icon>
+				<Section.Title className="-ml-2">open source</Section.Title>
+				<Section.Link
+					className="group relative inline-flex gap-1"
+					href="https://github.com/jesseborg"
+				>
+					see more <AnimatedRightArrow />
+				</Section.Link>
+			</Section.Header>
+			<Section.Body className="group/parent focus-within:text-neutral-400 hover:text-neutral-400">
+				<Suspense fallback={<ProjectListItemSkeleton />}>
+					<GitHubRepos />
+				</Suspense>
 			</Section.Body>
 		</Section.Root>
 	);
@@ -172,5 +202,13 @@ function NoiseGlow({ className }: { className: string }) {
 				className
 			)}
 		/>
+	);
+}
+
+function AnimatedRightArrow() {
+	return (
+		<div className="transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5">
+			-&gt;
+		</div>
 	);
 }
