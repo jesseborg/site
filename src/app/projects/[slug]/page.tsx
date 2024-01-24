@@ -27,7 +27,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
 	return (
 		<article className="flex flex-col gap-4">
-			<span className="halftone pointer-events-none relative overflow-hidden rounded-xl after:blur-[0.5px]">
+			<span className="halftone pointer-events-none relative overflow-hidden rounded after:blur-[0.5px] sm:rounded-xl">
 				<Image
 					className="pointer-events-auto w-full shadow-2xl shadow-black"
 					loading="eager"
