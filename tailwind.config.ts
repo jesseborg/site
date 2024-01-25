@@ -5,6 +5,19 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
+				theme: {
+					50: 'rgb(var(--theme-50) / <alpha-value>)',
+					100: 'rgb(var(--theme-100) / <alpha-value>)',
+					200: 'rgb(var(--theme-200) / <alpha-value>)',
+					300: 'rgb(var(--theme-300) / <alpha-value>)',
+					400: 'rgb(var(--theme-400) / <alpha-value>)',
+					500: 'rgb(var(--theme-500) / <alpha-value>)',
+					600: 'rgb(var(--theme-600) / <alpha-value>)',
+					700: 'rgb(var(--theme-700) / <alpha-value>)',
+					800: 'rgb(var(--theme-800) / <alpha-value>)',
+					900: 'rgb(var(--theme-900) / <alpha-value>)',
+					950: 'rgb(var(--theme-950) / <alpha-value>)'
+				},
 				widget: {
 					50: 'rgb(var(--widget-50) / <alpha-value>)',
 					100: 'rgb(var(--widget-100) / <alpha-value>)',
@@ -16,6 +29,21 @@ const config: Config = {
 					700: 'rgb(var(--widget-700) / <alpha-value>)',
 					800: 'rgb(var(--widget-800) / <alpha-value>)',
 					900: 'rgb(var(--widget-900) / <alpha-value>)'
+				}
+			},
+			borderColor: {
+				theme: {
+					50: 'rgb(var(--theme-50) / <alpha-value>)',
+					100: 'rgb(var(--theme-100) / <alpha-value>)',
+					200: 'rgb(var(--theme-200) / <alpha-value>)',
+					300: 'rgb(var(--theme-300) / <alpha-value>)',
+					400: 'rgb(var(--theme-400) / <alpha-value>)',
+					500: 'rgb(var(--theme-500) / <alpha-value>)',
+					600: 'rgb(var(--theme-600) / <alpha-value>)',
+					700: 'rgb(var(--theme-700) / <alpha-value>)',
+					800: 'rgb(var(--theme-800) / <alpha-value>)',
+					900: 'rgb(var(--theme-900) / <alpha-value>)',
+					950: 'rgb(var(--theme-950) / <alpha-value>)'
 				}
 			},
 			fontFamily: {

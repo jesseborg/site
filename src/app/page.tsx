@@ -1,6 +1,6 @@
 import { CurrentTime } from '@/components/current-time';
 import { GitHubRepos } from '@/components/github-repos';
-import { SuitcaseIcon, TerminalIcon } from '@/components/icons';
+import { NextJSIcon, SuitcaseIcon, TerminalIcon } from '@/components/icons';
 import { ProjectCard } from '@/components/project-card';
 import { ProjectListItemSkeleton } from '@/components/project-list-item';
 import { Section } from '@/components/section';
@@ -18,10 +18,7 @@ export default function Home() {
 				<div className="flex items-center">
 					<span aria-hidden className="ping" />
 					<p className="flex items-center gap-px">Available for work</p>
-					<hr
-						aria-hidden
-						className="mx-3 flex-1 self-center border-neutral-600 mix-blend-lighten"
-					/>
+					<hr aria-hidden className="border-theme-600 mx-3 flex-1 self-center" />
 					<CurrentTime />
 				</div>
 				<HeaderImage />
@@ -38,7 +35,7 @@ export default function Home() {
 
 function HeaderImage() {
 	return (
-		<div className="relative mb-2 sm:mb-6">
+		<div className="relative mb-2 invert dark:invert-0 sm:mb-6">
 			<Image
 				priority
 				className="w-full"
@@ -61,7 +58,7 @@ function HeaderImage() {
 
 function Introduction() {
 	return (
-		<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-neutral-300 dark:prose-invert [&>span]:text-neutral-400">
+		<div className="text-theme-300 [&>span]:text-theme-400 prose !max-w-full leading-6 -tracking-[0.2px] dark:prose-invert">
 			<p>
 				Hi, I&apos;m Jesse! I&apos;ve been a hobbyist web developer for around 2+ years but only
 				recently decided to start pursuing it as a career.
@@ -72,7 +69,7 @@ function Introduction() {
 				development.
 			</p>
 
-			<sub className="block text-neutral-600">*opinion</sub>
+			<sub className="text-theme-600 block">*opinion</sub>
 		</div>
 	);
 }
@@ -132,7 +129,7 @@ function OpenSourceSection() {
 					see more <AnimatedRightArrow />
 				</Section.Link>
 			</Section.Header>
-			<Section.Body className="group/parent focus-within:text-neutral-400 hover:text-neutral-400">
+			<Section.Body className="group/parent focus-within:text-theme-400 hover:text-theme-400">
 				<Suspense fallback={<ProjectListItemSkeleton />}>
 					<GitHubRepos />
 				</Suspense>
@@ -160,8 +157,7 @@ function TechStackSection() {
 				<StackIcon href="https://tauri.app" tooltip="Tauri" />
 				<StackIcon href="https://www.prisma.io" tooltip="Prisma" />
 				<StackIcon href="https://nextjs.org" tooltip="NextJS">
-					{/* eslint-disable-next-line @next/next/no-img-element */}
-					<img alt="Next.js logo" src="/nextjs.svg" width="16" height="16" />
+					<NextJSIcon />
 				</StackIcon>
 			</Section.Body>
 		</Section.Root>
@@ -180,7 +176,7 @@ function StackIcon({
 				target="_blank"
 				href={href}
 				className={
-					'rounded-md border-[0.5px] border-white/10 bg-neutral-900 p-[6px] text-white outline-offset-0 hover:bg-neutral-800'
+					'bg-theme-900 hover:bg-theme-800 border-theme-50/10 text-theme-300 rounded-md border-[0.5px] p-[6px] outline-offset-0'
 				}
 			>
 				{!Boolean(children) && (

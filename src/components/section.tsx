@@ -8,12 +8,12 @@ function Root({ children }: PropsWithChildren<{}>) {
 
 function Title({ children, className }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
 	return (
-		<p className={cn('flex-1 text-base font-bold italic text-neutral-50', className)}>{children}</p>
+		<p className={cn('text-theme-50 flex-1 text-base font-bold italic', className)}>{children}</p>
 	);
 }
 
 function Icon({ children }: PropsWithChildren<{}>) {
-	return <span>{children}</span>;
+	return <span className="text-theme-50">{children}</span>;
 }
 
 function Link({
@@ -24,7 +24,7 @@ function Link({
 	return (
 		<NextLink
 			className={cn(
-				'font-lightitalic rounded-sm text-xs text-neutral-300 hover:text-neutral-100 focus-visible:text-neutral-100',
+				'font-lightitalic text-theme-300 hover:text-theme-100 focus-visible:text-theme-100 rounded-sm text-xs',
 				className
 			)}
 			{...props}

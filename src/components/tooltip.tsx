@@ -18,9 +18,9 @@ export function Tooltip({ tooltip, children }: TooltipProps) {
 				<TooltipPrimitive.Content
 					sideOffset={4}
 					collisionPadding={10}
-					className="data-[state=delayed-open]:animate-slideUpAndFade pointer-events-none z-50 rounded-md border-[0.5px] border-white/20 bg-zinc-800 p-2 transition-all delay-0 sm:delay-100"
+					className="border-theme-50/20 bg-theme-800 pointer-events-none z-50 rounded-md border-[0.5px] p-2 transition-all delay-0 data-[state=delayed-open]:animate-slideUpAndFade sm:delay-100"
 				>
-					<p className="cursor-default select-none text-xs leading-[10px] text-neutral-200 ">
+					<p className="text-theme-200 cursor-default select-none text-xs leading-[10px] ">
 						{tooltip}
 					</p>
 				</TooltipPrimitive.Content>

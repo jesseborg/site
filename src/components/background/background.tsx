@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useMemo, useRef, useState } from 'react';
-import { IUniform, Mesh, ShaderMaterial, Vector2 } from 'three';
+import { IUniform, Mesh, ShaderMaterial, Vector2, Vector3 } from 'three';
 
 function AnimatedGrid() {
 	const defaultUniforms = useMemo(
@@ -13,7 +13,8 @@ function AnimatedGrid() {
 				dotsSpacing: { value: 11.0 },
 				perlinScale: { value: 2.0 },
 				perlinSpeed: { value: 8.0 },
-				opacity: { value: 0.0 }
+				opacity: { value: 0.0 },
+				dotsColor: { value: new Vector3(255.0, 255.0, 255.0) }
 			}) satisfies Record<string, IUniform>,
 		[]
 	);
@@ -83,9 +84,7 @@ const backgroundMaterial = new ShaderMaterial({
 		uniform float perlinScale;
 		uniform float perlinSpeed;
 		uniform float opacity;
-
-		const vec4 WHITE = vec4(255.0, 255.0, 255.0, 1.0);
-		const vec4 BLACK = vec4(0.0, 0.0, 0.0, 1.0);
+		uniform vec3 dotsColor;
 
 		float whiteNoise(vec4 pos, float evolve) {
 			// Loop the evolution (over a very long period of time).
@@ -158,23 +157,27 @@ const backgroundMaterial = new ShaderMaterial({
 			// Dots
 			vec2 point = (floor(gl_FragCoord.xy / dotsSpacing) + 0.5) * dotsSpacing;
 			float radius = length(gl_FragCoord.xy - point) / dotsSize;
-			vec4 dots = vec4(vec3((1.0 - pow(radius, dotsSpacing))), 1.0);
+			vec3 dots = 255.0 * vec3(1.0 - pow(radius, dotsSpacing));
 			
 			// Perlin Noise
 			float pNoise = perlinNoise(vec3(uv * perlinScale, iTime / perlinSpeed));
-			vec3 perlinDots = blendDarken(vec3(dots), vec3(pNoise));
+				vec3 perlinDots = blendDarken(dots, vec3(pNoise));
 
 			// White Noise on Perlin Dots
-			vec3 wNoise = vec3(whiteNoise(gl_FragCoord, 1.0));
-			// vec3 noiseOverlay = mix(perlinDots, wNoise, -1.0 + pNoise);
-			vec3 noiseOverlay = mix(perlinDots, wNoise, 0.5);
+			float wNoise = whiteNoise(gl_FragCoord, 1.0);
+			vec3 noiseOverlay = mix(perlinDots, vec3(wNoise), 0.5);
 
 			// White Noise Overlay
-			vec3 wNoise2 = vec3(whiteNoise(gl_FragCoord, 1.0));
-			vec3 finalOverlay = blendOverlay(wNoise2 * 0.80, noiseOverlay);
+			float wNoise2 = whiteNoise(gl_FragCoord, 1.0);
+			vec3 finalOverlay = blendOverlay(vec3(wNoise2) * 0.80, noiseOverlay);
 
-			// gl_FragColor = dots;
-			gl_FragColor = vec4(finalOverlay * opacity, 1.0);
+			// Make black pixels transparent
+			if (all(lessThanEqual(finalOverlay, vec3(0.01)))) {
+					discard;
+			}
+
+    	vec3 colorOverlay = blendDarken(finalOverlay, dotsColor);
+			gl_FragColor = vec4(colorOverlay * opacity, 1.0);
 		}
 	`
 });
