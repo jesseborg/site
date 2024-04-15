@@ -19,16 +19,16 @@ export type Track = {
 		};
 	};
 	artists: {
-		items: {
+		items: Array<{
 			uri: string;
 			profile: {
 				name: string;
 			};
-		}[];
+		}>;
 	};
 };
 
-export const tracks: Track[] = [
+export const tracks: Array<Track> = [
 	{
 		theme: {
 			'--widget-50': '247 248 237',
