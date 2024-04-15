@@ -21,56 +21,47 @@ export default function Home() {
 					<hr aria-hidden className="mx-3 flex-1 self-center border-theme-600" />
 					<CurrentTime />
 				</div>
-				<HeaderImage />
+
+				{/* Header Image */}
+				<div className="relative mb-2 sm:mb-6">
+					<Image
+						priority
+						className="w-full"
+						src="/images/header.png"
+						alt="Monochromatic image of a bunch of leaves with a halftone effect applied"
+						width={640}
+						height={150}
+					/>
+					<Image
+						draggable={false}
+						className="rendering-pixelated absolute bottom-0 left-1/2 mx-auto w-[90%] -translate-x-1/2 translate-y-1/2"
+						src="/images/name.png"
+						alt="My name 'Jesse Borg' gradually getting more pixelated with each letter"
+						width={561}
+						height={65}
+					/>
+				</div>
 			</div>
 			<div className="flex flex-col gap-6 text-base">
-				<Introduction />
+				{/* Introduction */}
+				<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-theme-300 dark:prose-invert [&>span]:text-theme-400">
+					<p>
+						Hi, I&apos;m Jesse! I&apos;ve been a hobbyist web developer for around 2+ years but only
+						recently decided to start pursuing it as a career.
+					</p>
+					<p>
+						I&apos;m mainly looking for work in front-end development, with a focus on creating
+						beautiful<sup>*</sup> user interfaces. However, I also have an interest in back-end
+						development.
+					</p>
+
+					<sub className="block text-theme-600">*opinion</sub>
+				</div>
 				<ProjectsSection />
 				<OpenSourceSection />
 				<TechStackSection />
 			</div>
 		</article>
-	);
-}
-
-function HeaderImage() {
-	return (
-		<div className="relative mb-2 sm:mb-6">
-			<Image
-				priority
-				className="w-full"
-				src="/images/header.png"
-				alt="Monochromatic image of a bunch of leaves with a halftone effect applied"
-				width={640}
-				height={150}
-			/>
-			<Image
-				draggable={false}
-				className="rendering-pixelated absolute bottom-0 left-1/2 mx-auto w-[90%] -translate-x-1/2 translate-y-1/2"
-				src="/images/name.png"
-				alt="My name 'Jesse Borg' gradually getting more pixelated with each letter"
-				width={561}
-				height={65}
-			/>
-		</div>
-	);
-}
-
-function Introduction() {
-	return (
-		<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-theme-300 dark:prose-invert [&>span]:text-theme-400">
-			<p>
-				Hi, I&apos;m Jesse! I&apos;ve been a hobbyist web developer for around 2+ years but only
-				recently decided to start pursuing it as a career.
-			</p>
-			<p>
-				I&apos;m mainly looking for work in front-end development, with a focus on creating
-				beautiful<sup>*</sup> user interfaces. However, I also have an interest in back-end
-				development.
-			</p>
-
-			<sub className="block text-theme-600">*opinion</sub>
-		</div>
 	);
 }
 
