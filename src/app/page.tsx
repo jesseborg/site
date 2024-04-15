@@ -47,15 +47,9 @@ export default function Home() {
 				{/* Introduction */}
 				<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-theme-300 dark:prose-invert [&>span]:text-theme-400">
 					<p>
-						Hi, I&apos;m Jesse! I&apos;ve been a hobbyist web developer for around 2+ years but only
-						recently decided to start pursuing it as a career.
+						Hobbyist web developer with around 2+ years of self-taught experience. Mainly looking
+						for work in front-end development, with an interest in back-end development.
 					</p>
-					<p>
-						I&apos;m mainly looking for work in front-end development, with a focus on creating
-						beautiful<sup>*</sup> user interfaces. However, I also have an interest in back-end
-						development.
-					</p>
-
 					<sub className="block text-theme-600">*opinion</sub>
 				</div>
 				<ProjectsSection />
@@ -156,7 +150,7 @@ function TechStackSection() {
 	);
 }
 
-function StackIcon({
+export function StackIcon({
 	href,
 	tooltip,
 	children

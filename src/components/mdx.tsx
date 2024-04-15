@@ -1,6 +1,7 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
+import { StackIcon } from '../app/page';
 import { Badge } from './badge';
 import { SpotifyWidget, SpotifyWidgetContainer } from './spotify-widget/spotify-widget';
 
@@ -24,6 +25,7 @@ export function MDXComponent(props: MDXRemoteProps) {
 				Link,
 				SpotifyWidget,
 				SpotifyWidgetContainer,
+				StackIcon,
 				a: Anchor
 			}}
 			{...props}

@@ -5,7 +5,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
 	title: 'Jesse Borg',
-	description: 'todo',
+	description: 'Personal website for Jesse Borg',
 	metadataBase: new URL('https://acme.com'),
 	alternates: {
 		canonical: '/'

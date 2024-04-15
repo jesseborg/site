@@ -7,15 +7,14 @@ thumbnailURL: /images/projects/spotify-widget_thumbnail.png
 ---
 
 <div className="hidden flex-col items-center gap-2 [@media(min-width:400px)]:flex">
-	{/* <Link className="m-0 text-sm" target="_blank" href="https://github.com/jesseborg/spotify-widget">
-		{'GitHub'}
-	</Link> */}
 	<SpotifyWidgetContainer />
 </div>
 
-<div className="mt-4 text-center">[View Source](https://github.com/jesseborg/spotify-widget)</div>
+<div className="mt-4 text-center text-sm">
+	[View Source &#x2197;](https://github.com/jesseborg/spotify-widget)
+</div>
 
-I built this app because I wanted a way to _always_ see and control my Spotify desktop session without having to continually open the desktop window.
+I created this app because I wanted a way to _always_ see and control my Spotify desktop session without having to keep the desktop window open.
 
 {"It's built with the "}
 
@@ -41,7 +40,9 @@ I built this app because I wanted a way to _always_ see and control my Spotify d
 </Badge>
 {'on the frontend'}
 
+The desktop app works by using the Windows API to get information about the currently playing media from the Spotify app, but if I were to start over again I'd probably just use the Spotify API, even if this means that the app must need an internet connection to work.
+
 <span className="hidden [@media(min-width:400px)]:block">
-	It's currently not available for download, but you can try an example of what the UI is like
-	above.
+	It's currently not available for download, but you can try an example of what the UI is like above
+	(obviously without the draggable window) and of course you can also view the source code.
 </span>
