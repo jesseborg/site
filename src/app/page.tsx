@@ -40,6 +40,7 @@ export default function Home() {
 						width={561}
 						height={65}
 					/>
+					<NoiseGlow className="bottom-0 left-1/2 h-full w-[125%] -translate-x-1/2 translate-y-1/2" />
 				</div>
 			</div>
 			<div className="flex flex-col gap-6 text-base">
@@ -80,9 +81,9 @@ function ProjectsSection() {
 				</Section.Link>
 			</Section.Header>
 			<Section.Body className="relative grid grid-cols-1 gap-2 sm:grid-cols-2">
-				<NoiseGlow className="left-0 top-0 h-72 w-72 -translate-x-1/3 -translate-y-6" />
-				<NoiseGlow className="right-0 top-1/2 hidden h-96 w-32 -translate-y-1/2 translate-x-1/2 sm:block" />
-				<NoiseGlow className="bottom-0 h-32 w-full translate-y-2/4" />
+				<NoiseGlow className="left-0 top-0 h-72 w-72 -translate-x-1/3 -translate-y-6 opacity-60" />
+				<NoiseGlow className="right-0 top-1/2 hidden h-96 w-32 -translate-y-1/2 translate-x-1/2 opacity-50 sm:block" />
+				<NoiseGlow className="bottom-0 h-32 w-full translate-y-2/4 opacity-50" />
 				{projects.map((project) => {
 					return (
 						<ProjectCard
