@@ -1,4 +1,3 @@
-import { Background } from '@/components/background/background';
 import { Providers } from '@/components/providers';
 import { inter, interDisplay } from '@/styles/fonts';
 import type { Metadata } from 'next';
@@ -26,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en" className="relative">
 			<body className={`${inter.variable} ${interDisplay.variable} overflow-x-hidden font-sans`}>
-				<Background />
+				{/* <Background /> */}
 				<Providers>
 					<main className="px-6 pb-16 pt-8 sm:pb-32 sm:pt-16">{children}</main>
 				</Providers>
