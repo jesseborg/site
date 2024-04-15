@@ -25,14 +25,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en" className="relative">
 			<body
-				className={`${inter.variable} ${interDisplay.variable} space-y-8 overflow-x-hidden px-6 py-8 font-sans sm:py-16`}
+				className={`${inter.variable} ${interDisplay.variable} overflow-x-hidden px-6 py-8 font-sans sm:py-16`}
 			>
 				{/* <Background /> */}
 				<Providers>
 					<main>{children}</main>
 				</Providers>
 
-				<footer className="text-center text-xs text-theme-500">
+				<footer className="pt-8 text-center text-xs text-theme-500">
 					Thanks for checking out my site,{' '}
 					<a
 						className="border-b-[1px] border-theme-400 text-theme-400 hover:border-theme-300 hover:text-theme-300"
