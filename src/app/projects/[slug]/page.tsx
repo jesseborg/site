@@ -1,6 +1,6 @@
 import { MDXComponent } from '@/components/mdx';
-import { getProject } from '@/db/projects';
 import { dynamicBlurDataURL } from '@/lib/dynamic-blur-data-url';
+import { getProject } from '@/lib/projects';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 

@@ -5,7 +5,7 @@ import { ProjectCard } from '@/components/project-card';
 import { ProjectListItemSkeleton } from '@/components/project-list-item';
 import { Section } from '@/components/section';
 import { Tooltip } from '@/components/tooltip';
-import { getProjects } from '@/db/projects';
+import { getProjects } from '@/lib/projects';
 import { cn } from '@/lib/util';
 import Image from 'next/image';
 import Link from 'next/link';

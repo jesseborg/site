@@ -1,4 +1,4 @@
-import { ProjectMetadata } from '@/db/projects';
+import { ProjectMetadata } from '@/lib/projects';
 import { cn } from '@/lib/util';
 import Link from 'next/link';
 import { ComponentProps } from 'react';

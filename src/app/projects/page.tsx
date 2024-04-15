@@ -1,5 +1,5 @@
 import { ProjectListItem } from '@/components/project-list-item';
-import { getProjects } from '@/db/projects';
+import { getProjects } from '@/lib/projects';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
