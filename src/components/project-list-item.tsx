@@ -18,7 +18,9 @@ export function ProjectListItem({ project, href, className }: ProjectListItemPro
 		<Link
 			href={href}
 			className={cn(
-				'group/link -mx-2 flex gap-3 rounded-sm px-2 py-4 text-sm outline-2 outline-offset-4 outline-theme-100 transition-colors focus-within:text-theme-100 hover:text-theme-100 hover:transition-none focus-visible:outline',
+				'group/link -mx-2 flex gap-3 rounded-sm px-2 py-4 text-sm outline-2 outline-offset-4 outline-theme-100',
+				'hover:text-theme-100',
+				'focus-within:text-theme-100 focus-visible:outline',
 				className
 			)}
 		>
