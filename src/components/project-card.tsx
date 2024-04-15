@@ -14,11 +14,11 @@ export async function ProjectCard(props: ProjectCardProps) {
 
 	return (
 		<Link
-			className="group rounded-xl border border-white/30 bg-neutral-900 p-1 transition-colors duration-200 hover:border-white/40 focus-visible:border-2 focus-visible:border-neutral-300 focus-visible:outline-0"
+			className="group min-w-[332px] rounded-xl border border-theme-50/30 bg-theme-900 p-1 transition-colors duration-200 hover:border-theme-50/40 focus-visible:border-2 focus-visible:border-theme-300 focus-visible:outline-0"
 			href={props.href}
 			rel="noreferrer"
 		>
-			<div className="relative w-full overflow-hidden rounded-lg">
+			<div className="relative w-full overflow-hidden rounded-lg border border-theme-700/50">
 				<span className="fade-overlay">
 					<span className="halftone">
 						<Image
@@ -36,12 +36,10 @@ export async function ProjectCard(props: ProjectCardProps) {
 
 				<div
 					className={
-						'absolute bottom-0 left-0 z-10 w-full p-4 font-sans-display  duration-200 ease-in-out will-change-transform group-hover:-translate-y-[2px]'
+						'absolute bottom-0 left-0 z-10 w-full p-4 font-sans-display duration-200 ease-in-out will-change-transform group-hover:-translate-y-[2px]'
 					}
 				>
-					<p className="text-sm font-medium leading-4 text-neutral-50 sm:leading-6">
-						{props.title}
-					</p>
+					<p className="text-sm font-medium leading-4 text-white sm:leading-6">{props.title}</p>
 					<p className="text-sm font-normal leading-4 text-neutral-300 sm:leading-[9px]">
 						{props.description}
 					</p>

@@ -18,7 +18,7 @@ export default function Home() {
 				<div className="flex items-center">
 					<span aria-hidden className="ping" />
 					<p className="flex items-center gap-px">Available for work</p>
-					<hr aria-hidden className="border-theme-600 mx-3 flex-1 self-center" />
+					<hr aria-hidden className="mx-3 flex-1 self-center border-theme-600" />
 					<CurrentTime />
 				</div>
 				<HeaderImage />
@@ -35,7 +35,7 @@ export default function Home() {
 
 function HeaderImage() {
 	return (
-		<div className="relative mb-2 invert dark:invert-0 sm:mb-6">
+		<div className="relative mb-2 sm:mb-6">
 			<Image
 				priority
 				className="w-full"
@@ -58,7 +58,7 @@ function HeaderImage() {
 
 function Introduction() {
 	return (
-		<div className="text-theme-300 [&>span]:text-theme-400 prose !max-w-full leading-6 -tracking-[0.2px] dark:prose-invert">
+		<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-theme-300 dark:prose-invert [&>span]:text-theme-400">
 			<p>
 				Hi, I&apos;m Jesse! I&apos;ve been a hobbyist web developer for around 2+ years but only
 				recently decided to start pursuing it as a career.
@@ -69,7 +69,7 @@ function Introduction() {
 				development.
 			</p>
 
-			<sub className="text-theme-600 block">*opinion</sub>
+			<sub className="block text-theme-600">*opinion</sub>
 		</div>
 	);
 }
@@ -103,6 +103,7 @@ function ProjectsSection() {
 						/>
 					);
 				})}
+				<ProjectCard src={''} title={'??????'} description={'????'} href={''} />
 			</Section.Body>
 		</Section.Root>
 	);
@@ -176,7 +177,7 @@ function StackIcon({
 				target="_blank"
 				href={href}
 				className={
-					'bg-theme-900 hover:bg-theme-800 border-theme-50/10 text-theme-300 rounded-md border-[0.5px] p-[6px] outline-offset-0'
+					'rounded-md border-[0.5px] border-theme-50/10 bg-theme-900 p-[6px] text-theme-300 outline-offset-0 hover:bg-theme-800'
 				}
 			>
 				{!Boolean(children) && (
