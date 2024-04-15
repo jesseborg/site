@@ -24,11 +24,23 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" className="relative">
-			<body className={`${inter.variable} ${interDisplay.variable} overflow-x-hidden font-sans`}>
+			<body
+				className={`${inter.variable} ${interDisplay.variable} space-y-8 overflow-x-hidden px-6 py-8 font-sans sm:py-16`}
+			>
 				{/* <Background /> */}
 				<Providers>
-					<main className="px-6 pb-16 pt-8 sm:pb-32 sm:pt-16">{children}</main>
+					<main>{children}</main>
 				</Providers>
+
+				<footer className="text-center text-xs text-theme-500">
+					Thanks for checking out my site,{' '}
+					<a
+						className="border-b-[1px] border-theme-400 text-theme-400 hover:border-theme-300 hover:text-theme-300"
+						href="https://github.com/jesseborg/site"
+					>
+						view source.
+					</a>
+				</footer>
 			</body>
 		</html>
 	);
