@@ -103,7 +103,6 @@ function ProjectsSection() {
 						/>
 					);
 				})}
-				<ProjectCard src={''} title={'??????'} description={'????'} href={''} />
 			</Section.Body>
 		</Section.Root>
 	);
