@@ -1,7 +1,7 @@
 'use client';
 
+import { cn } from '@/lib/util';
 import { satoshi } from '@/styles/fonts';
-import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
 import {

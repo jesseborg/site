@@ -6,7 +6,7 @@ import { ProjectListItemSkeleton } from '@/components/project-list-item';
 import { Section } from '@/components/section';
 import { Tooltip } from '@/components/tooltip';
 import { getProjects } from '@/db/projects';
-import { cn } from '@/utils/cn';
+import { cn } from '@/lib/util';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PropsWithChildren, Suspense } from 'react';

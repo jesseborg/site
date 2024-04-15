@@ -1,3 +1,10 @@
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: Array<ClassValue>) {
+	return twMerge(clsx(inputs));
+}
+
 const baseURL = process.env.NEXT_PUBLIC_URL;
 
 type Options = {

@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/lib/util';
 import * as RadixSlider from '@radix-ui/react-slider';
 import { forwardRef } from 'react';
 

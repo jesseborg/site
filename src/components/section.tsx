@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn';
+import { cn } from '@/lib/util';
 import NextLink from 'next/link';
 import { ComponentProps, HTMLAttributes, PropsWithChildren } from 'react';
 
@@ -8,7 +8,7 @@ function Root({ children }: PropsWithChildren<{}>) {
 
 function Title({ children, className }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
 	return (
-		<p className={cn('text-theme-50 flex-1 text-base font-bold italic', className)}>{children}</p>
+		<p className={cn('flex-1 text-base font-bold italic text-theme-50', className)}>{children}</p>
 	);
 }
 
@@ -24,7 +24,7 @@ function Link({
 	return (
 		<NextLink
 			className={cn(
-				'font-lightitalic text-theme-300 hover:text-theme-100 focus-visible:text-theme-100 rounded-sm text-xs',
+				'font-lightitalic rounded-sm text-xs text-theme-300 hover:text-theme-100 focus-visible:text-theme-100',
 				className
 			)}
 			{...props}

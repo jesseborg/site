@@ -1,4 +1,4 @@
-import { dynamicBlurDataURL } from '@/utils/dynamic-blur-data-url';
+import { dynamicBlurDataURL } from '@/lib/dynamic-blur-data-url';
 import Image from 'next/image';
 import Link from 'next/link';
 
