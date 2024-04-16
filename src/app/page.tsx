@@ -50,7 +50,6 @@ export default function Home() {
 						Hobbyist web developer with around 2+ years of self-taught experience. Mainly looking
 						for work in front-end development, with an interest in back-end development.
 					</p>
-					<sub className="block text-theme-600">*opinion</sub>
 				</div>
 				<ProjectsSection />
 				<OpenSourceSection />
