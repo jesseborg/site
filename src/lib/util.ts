@@ -19,11 +19,15 @@ export async function dynamicBlurDataURL(
 		quality: 75
 	}
 ) {
-	const response = await fetch(
-		`${baseURL}/_next/image?url=${url}&w=${options.width}&q=${options.quality}`
-	);
+	try {
+		const response = await fetch(
+			`${baseURL}/_next/image?url=${url}&w=${options.width}&q=${options.quality}`
+		);
 
-	const base64 = Buffer.from(await response.arrayBuffer()).toString('base64');
+		const base64 = Buffer.from(await response.arrayBuffer()).toString('base64');
 
-	return `data:image/png;base64,${base64}`;
+		return `data:image/png;base64,${base64}`;
+	} catch (e) {
+		return undefined;
+	}
 }
