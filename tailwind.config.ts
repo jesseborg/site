@@ -69,8 +69,8 @@ const config: Config = {
 					from: { opacity: '0', transform: 'translateY(2px)' },
 					to: { opacity: '1', transform: 'translateY(0)' }
 				},
-				'slide-in': {},
-				'slide-out': {}
+				'slide-in': { from: { opacity: '1' }, to: { opacity: '1' } },
+				'slide-out': { from: { opacity: '1' }, to: { opacity: '1' } }
 			},
 			animation: {
 				'background':
