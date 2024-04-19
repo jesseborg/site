@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
 	CSSProperties,
+	ComponentProps,
 	HTMLAttributes,
 	PropsWithChildren,
 	SVGAttributes,
@@ -251,41 +252,37 @@ type ControlsProps = {
 };
 
 function Controls({ isPlaying, onNext, onPause, onPlay, onPrevious }: ControlsProps) {
+	function togglePlay() {
+		if (isPlaying) {
+			onPause?.();
+		} else {
+			onPlay?.();
+		}
+	}
+
 	return (
 		<div className="pointer-events-auto flex">
-			<button
-				aria-label="Previous track"
-				className="flex h-5 w-5 cursor-default flex-col items-center justify-center rounded-sm text-widget-200 outline-none outline-offset-2 transition-colors hover:text-widget-50"
-				onClick={onPrevious}
-			>
+			<ControlButton aria-label="Previous track" onClick={onPrevious}>
 				<PreviousIcon />
-			</button>
-			{!isPlaying && (
-				<button
-					aria-label="Play track"
-					className="flex h-5 w-5 cursor-default flex-col items-center justify-center rounded-sm text-widget-200 outline-none outline-offset-2 transition-colors hover:text-widget-50"
-					onClick={onPlay}
-				>
-					<PlayIcon />
-				</button>
-			)}
-			{isPlaying && (
-				<button
-					aria-label="Pause track"
-					className="flex h-5 w-5 cursor-default flex-col items-center justify-center rounded-sm text-widget-200 outline-none outline-offset-2 transition-colors hover:text-widget-50"
-					onClick={onPause}
-				>
-					<PauseIcon />
-				</button>
-			)}
-			<button
-				aria-label="Next track"
-				className="flex h-5 w-5 cursor-default flex-col items-center justify-center rounded-sm text-widget-200 outline-none outline-offset-2 transition-colors hover:text-widget-50"
-				onClick={onNext}
-			>
+			</ControlButton>
+			<ControlButton aria-label={`${isPlaying ? 'Pause' : 'Play'} track`} onClick={togglePlay}>
+				{isPlaying ? <PauseIcon /> : <PlayIcon />}
+			</ControlButton>
+			<ControlButton aria-label="Next track" onClick={onNext}>
 				<NextIcon />
-			</button>
+			</ControlButton>
 		</div>
+	);
+}
+
+function ControlButton({ children, ...props }: PropsWithChildren<ComponentProps<'button'>>) {
+	return (
+		<button
+			{...props}
+			className="flex h-5 w-5 cursor-default flex-col items-center justify-center rounded-sm text-widget-200 outline-none outline-offset-2 transition-colors hover:text-widget-50"
+		>
+			{children}
+		</button>
 	);
 }
 
