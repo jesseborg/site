@@ -24,7 +24,7 @@ function ProjectsList() {
 	}
 
 	return (
-		<div className="group/parent flex flex-col focus-within:text-neutral-400 hover:text-neutral-400">
+		<div className="group/parent focus-within:text-theme-400 hover:text-theme-400">
 			{projects.map((project) => (
 				<Link
 					key={project.slug}
@@ -32,6 +32,7 @@ function ProjectsList() {
 						pathname: `/projects/${project.slug}`,
 						query: { nav: 'projects' }
 					}}
+					className="group/link"
 				>
 					<ProjectListItem project={project.metadata} />
 				</Link>

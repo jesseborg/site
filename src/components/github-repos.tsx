@@ -16,7 +16,7 @@ export async function GitHubRepos() {
 	return (
 		<>
 			{repos.map((repo) => (
-				<a target="_blank" key={repo.name} href={repo.html_url}>
+				<a target="_blank" key={repo.name} href={repo.html_url} className='group/link'>
 					<ProjectListItem
 						className="py-2"
 						project={{
