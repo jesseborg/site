@@ -60,7 +60,7 @@ export function SpotifyWidget({ track, onNextTrack, onPreviousTrack }: SpotifyWi
 
 	const [currentTime, setCurrentTime] = useState(0);
 	const [duration, setDuration] = useState(0);
-	const [volume, setVolume] = useState(0.5);
+	const [volume, setVolume] = useState(0.1);
 
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
