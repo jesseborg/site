@@ -1,13 +1,12 @@
 import { ProjectMetadata } from '@/lib/projects';
 import { cn } from '@/lib/util';
-import Link from 'next/link';
 import { ComponentProps } from 'react';
 
 type ProjectListItemProps = {
 	project: Partial<ProjectMetadata>;
-} & ComponentProps<typeof Link>;
+} & ComponentProps<'div'>;
 
-export function ProjectListItem({ project, href, className }: ProjectListItemProps) {
+export function ProjectListItem({ project, className, ...props }: ProjectListItemProps) {
 	const date = new Date(project.publishedAt!).toLocaleDateString('en-AU', {
 		day: 'numeric',
 		month: 'numeric',
@@ -15,8 +14,8 @@ export function ProjectListItem({ project, href, className }: ProjectListItemPro
 	});
 
 	return (
-		<Link
-			href={href}
+		<div
+			{...props}
 			className={cn(
 				'group/link -mx-2 flex gap-3 rounded-sm px-2 py-4 text-sm outline-2 outline-offset-4 outline-theme-100',
 				'hover:text-theme-100',
@@ -30,7 +29,7 @@ export function ProjectListItem({ project, href, className }: ProjectListItemPro
 			</p>
 			<hr className="flex-1 self-center border-theme-700 bg-inherit group-hover/link:border-theme-600" />
 			<span className="text-sm">{date}</span>
-		</Link>
+		</div>
 	);
 }
 

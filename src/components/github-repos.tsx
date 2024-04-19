@@ -16,17 +16,16 @@ export async function GitHubRepos() {
 	return (
 		<>
 			{repos.map((repo) => (
-				<ProjectListItem
-					target="_blank"
-					key={repo.name}
-					href={repo.html_url}
-					className="py-2"
-					project={{
-						title: repo.name,
-						description: repo.description,
-						publishedAt: repo.created_at
-					}}
-				/>
+				<a target="_blank" key={repo.name} href={repo.html_url}>
+					<ProjectListItem
+						className="py-2"
+						project={{
+							title: repo.name,
+							description: repo.description,
+							publishedAt: repo.created_at
+						}}
+					/>
+				</a>
 			))}
 		</>
 	);

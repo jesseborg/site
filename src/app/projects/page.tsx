@@ -1,6 +1,7 @@
 import { ProjectListItem } from '@/components/project-list-item';
 import { getProjects } from '@/lib/projects';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
 	title: 'Projects'
@@ -25,14 +26,15 @@ function ProjectsList() {
 	return (
 		<div className="group/parent flex flex-col focus-within:text-neutral-400 hover:text-neutral-400">
 			{projects.map((project) => (
-				<ProjectListItem
+				<Link
 					key={project.slug}
 					href={{
 						pathname: `/projects/${project.slug}`,
 						query: { nav: 'projects' }
 					}}
-					project={project.metadata}
-				/>
+				>
+					<ProjectListItem project={project.metadata} />
+				</Link>
 			))}
 		</div>
 	);
