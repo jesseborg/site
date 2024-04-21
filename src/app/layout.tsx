@@ -4,9 +4,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-	title: 'Jesse Borg',
-	description: 'Personal website for Jesse Borg',
-	metadataBase: new URL('https://jesseborg.vercel.app'),
+	title: "jesse's site",
+	metadataBase: new URL(String(process.env.NEXT_PUBLIC_SITE)),
 	alternates: {
 		canonical: '/'
 	},
@@ -36,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					Thanks for checking out my site,{' '}
 					<a
 						className="border-b-[1px] border-theme-400 text-theme-400 hover:border-theme-300 hover:text-theme-300"
-						href="https://github.com/jesseborg/site"
+						href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/site`}
 					>
 						view source.
 					</a>

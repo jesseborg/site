@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 	}
 
 	return {
-		title: project.metadata.title,
+		title: `${project.metadata.title} - jesse's site`,
 		metadataBase: new URL('https://acme.com'),
 		openGraph: {
 			url: `/projects/${project.slug}`

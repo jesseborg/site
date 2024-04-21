@@ -13,44 +13,39 @@ import { PropsWithChildren, Suspense } from 'react';
 
 export default function Home() {
 	return (
-		<article className="mx-auto flex max-w-2xl flex-col gap-8">
-			<div className="flex flex-col gap-3 font-mono text-xs">
-				<div className="flex items-center">
-					<span aria-hidden className="ping" />
-					<p className="flex items-center gap-px">Available for work</p>
-					<hr aria-hidden className="mx-3 flex-1 self-center border-theme-600" />
-					<CurrentTime />
-				</div>
-
-				{/* Header Image */}
-				<div className="relative mb-2 sm:mb-6">
-					<Image
-						priority
-						className="w-full"
-						src="/images/header.png"
-						alt="Monochromatic image of a bunch of leaves with a halftone effect applied"
-						width={640}
-						height={150}
-					/>
-					<Image
-						draggable={false}
-						className="rendering-pixelated absolute bottom-0 left-1/2 mx-auto w-[90%] -translate-x-1/2 translate-y-1/2"
-						src="/images/name.png"
-						alt="My name 'Jesse Borg' gradually getting more pixelated with each letter"
-						width={561}
-						height={65}
-					/>
-					<NoiseGlow className="bottom-0 left-1/2 h-full w-[125%] -translate-x-1/2 translate-y-1/2" />
-				</div>
+		<article className="mx-auto max-w-2xl space-y-8">
+			{/* Status Bar */}
+			<div className="flex items-center font-mono text-xs">
+				<span aria-hidden className="ping" />
+				<p>Available for work</p>
+				<hr aria-hidden className="mx-3 flex-1 border-theme-600" />
+				<CurrentTime />
 			</div>
-			<div className="flex flex-col gap-6 text-base">
+			<div className="space-y-4 text-base">
+				{/* Title */}
+				<h1 className="text-3xl font-bold">hey, im jesse</h1>
+
 				{/* Introduction */}
-				<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-theme-300 dark:prose-invert [&>span]:text-theme-400">
+				<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-theme-300 dark:prose-invert">
 					<p>
-						Hobbyist web developer with around 2+ years of self-taught experience. Mainly looking
-						for work in front-end development, with an interest in back-end development.
+						im a junior developer mainly interested in front-end web development, sometimes back-end
+						and software development.
+					</p>
+					<p>
+						my main projects are on{' '}
+						<a
+							className="no-underline"
+							href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
+						>
+							github
+						</a>
+						, most of them private, but you can check out the most interesting ones below.
 					</p>
 				</div>
+			</div>
+
+			{/* Sections */}
+			<div className="space-y-8">
 				<ProjectsSection />
 				<OpenSourceSection />
 				<TechStackSection />
@@ -109,7 +104,7 @@ function OpenSourceSection() {
 				<Section.Title className="-ml-2">open source</Section.Title>
 				<Section.Link
 					className="group relative inline-flex gap-1"
-					href="https://github.com/jesseborg"
+					href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
 				>
 					see more <AnimatedRightArrow />
 				</Section.Link>

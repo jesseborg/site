@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-	title: 'Projects'
+	title: "Projects - jesse's site"
 };
 
 export default function ProjectsPage() {
