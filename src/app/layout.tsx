@@ -5,7 +5,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
 	title: "jesse's site",
-	metadataBase: new URL(String(process.env.NEXT_PUBLIC_SITE)),
+	metadataBase: new URL(String(process.env.NEXT_PUBLIC_URL)),
 	alternates: {
 		canonical: '/'
 	},
