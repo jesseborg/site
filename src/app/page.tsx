@@ -94,6 +94,7 @@ function OpenSourceSection() {
 			<Section.Header>
 				<Section.Icon>
 					<Image
+						unoptimized
 						alt="GitHub Mona loading gif"
 						className="-scale-x-100"
 						src="https://github.githubassets.com/images/mona-loading-dark.gif"
