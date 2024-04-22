@@ -6,32 +6,34 @@ headerURL: /images/projects/pinboard-app_header.png
 thumbnailURL: /images/projects/pinboard-app_thumbnail.png
 ---
 
-<div className="text-center text-sm [&>p]:m-0">
-	<a target="_blank" href="https://pinboard-one.vercel.app">Live Demo &#x2197;</a> |
-	<a target="_blank" href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/pinboard`}>GitHub &#x2197;</a>
+<div class="space-y-4">
+	<video
+		loop
+		muted
+		autoPlay
+		playsInline
+		width="400"
+		height="400"
+		preload="auto"
+		className="sm:size-[400px] w-full mx-auto my-0 rounded-md"
+		alt="Short video demonstration of the Pinboard app."
+	>
+		<source src="/media/pinboard-demo_vp9.webm" type="video/webm; codecs=vp9" />
+		<source src="/media/pinboard-demo_h264.mp4" type="video/mp4" />
+		Your browser does not support this video tag.
+	</video>
+	
+	<div className="text-center text-sm [&>p]:m-0">
+		<a target="_blank" href="https://pinboard-one.vercel.app">Live Demo &#x2197;</a> |
+		<a target="_blank" href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/pinboard`}>GitHub &#x2197;</a>
+	</div>
+	
+	<div className="flex w-full justify-center gap-2">
+		<StackIcon href="https://react.dev/" tooltip="React" />
+		<StackIcon href="https://tailwindcss.com/" tooltip="Tailwind" />
+		<StackIcon href="https://typescriptlang.org" tooltip="Typescript" />
+	</div>
 </div>
-
-<div className="flex w-full justify-center gap-2 pt-4">
-	<StackIcon href="https://react.dev/" tooltip="React" />
-	<StackIcon href="https://tailwindcss.com/" tooltip="Tailwind" />
-	<StackIcon href="https://typescriptlang.org" tooltip="Typescript" />
-</div>
-
-<video
-	loop
-	muted
-	autoPlay
-	playsInline
-	width="400"
-	height="400"
-	preload="auto"
-	className="mx-auto my-0 mt-4 rounded-md"
-	alt="Short video demonstration of the Pinboard app."
->
-	<source src="/media/pinboard-demo_vp9.webm" type="video/webm; codecs=vp9" />
-	<source src="/media/pinboard-demo_h264.mp4" type="video/mp4" />
-	Your browser does not support this video tag.
-</video>
 
 This is a small, lightweight infinite Pinboard application.
 
