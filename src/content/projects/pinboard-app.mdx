@@ -17,12 +17,30 @@ thumbnailURL: /images/projects/pinboard-app_thumbnail.png
 	<StackIcon href="https://typescriptlang.org" tooltip="Typescript" />
 </div>
 
-<p className="text-center text-xs text-theme-500">note: dragging on mobile is not supported</p>
+<video
+	loop
+	muted
+	autoPlay
+	playsInline
+	width="400"
+	height="400"
+	preload="auto"
+	className="mx-auto my-0 mt-4 rounded-md"
+	alt="Short video demonstration of the Pinboard app."
+>
+	<source src="/media/pinboard-demo_vp9.webm" type="video/webm; codecs=vp9" />
+	<source src="/media/pinboard-demo_h264.mp4" type="video/mp4" />
+	Your browser does not support this video tag.
+</video>
 
 This is a small, lightweight infinite Pinboard application.
 
 My motivation stemmed from a personal challenge to minimize reliance on too many external libraries, but also because I wanted to challenge myself too see if I could even create them myself.
 
-The app has complete keyboard accessibility, including arrow key navigation where needed.
+The app is fully keyboard accessible, including arrow key navigation where needed (toolbars).
+
+All data is currently stored client-side and persisted in local storage, with the help of **zustand**.
 
 For a demonstration, please see the live demo above and if you're curious you can also view the source code.
+
+<p className="text-center text-xs text-theme-500">note: dragging on mobile is not supported</p>
