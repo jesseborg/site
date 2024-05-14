@@ -32,14 +32,14 @@ export default function Home() {
 						and software development.
 					</p>
 					<p>
-						my main projects are on{' '}
+						you can view the source for all my public projects on my{' '}
 						<a
 							className="no-underline"
 							href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
 						>
 							github
 						</a>
-						, most of them private, but you can check out the most interesting ones below.
+						, or read more about my main ones below.
 					</p>
 				</div>
 			</div>
