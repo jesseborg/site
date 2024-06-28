@@ -6,43 +6,30 @@ headerURL: /images/projects/spotify-widget_header.png
 thumbnailURL: /images/projects/spotify-widget_thumbnail.png
 ---
 
-<div className="hidden flex-col items-center gap-2 [@media(min-width:400px)]:flex">
-	<SpotifyWidgetContainer />
+<div className="space-y-4">
+	<div className="hidden flex-col items-center gap-2 [@media(min-width:400px)]:flex">
+		<SpotifyWidgetContainer />
+	</div>
+
+	<div className="text-center text-sm [&>p]:m-0">
+		<a target="_blank" href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/spotify-widget`}>GitHub &#x2197;</a>
+	</div>
+
+	<div className="flex w-full justify-center gap-2">
+		<StackIcon href="https://tauri.app/" tooltip="Tauri" />
+		<StackIcon href="https://react.dev/" tooltip="React" />
+		<StackIcon href="https://typescriptlang.org/" tooltip="Typescript" />
+		<StackIcon href="https://tailwindcss.com/" tooltip="Tailwind" />
+		<StackIcon href="https://rust-lang.org/" tooltip="Rust" />
+	</div>
+
+	Spotify Widget is a small desktop app that shows information about the current playing song from Spotify. It uses a thin wrapper around the Windows API, that I built in Rust.
+
+	This was one of the first projects I built when I began learning Rust, so that portion of the code isn't the best it could be.
+	
+	If I were to start this project over again I'd probably just use the Spotify API, even if this means that the app would need an internet connection to work.
+
+	<span className="hidden [@media(min-width:400px)]:block">
+		It's currently not available for download, but you can try an example of what the UI is like above and of course you can also view the source code.
+	</span>
 </div>
-
-<div className="mt-4 text-center text-sm">
-	<a target="_blank" href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/spotify-widget`}>GitHub &#x2197;</a>
-</div>
-
-I created this app because I wanted a way to _always_ see and control my Spotify desktop session without having to keep the desktop window open.
-
-{"It's built with the "}
-
-<Badge href="https://tauri.app">
-	<svg role="img" width="16" height="16">
-		<use href="/sprites.svg#tauri" />
-	</svg>
-	Tauri
-</Badge>
-{' framework using '}
-<Badge href="https://rust-lang.org">
-	<svg role="img" width="16" height="16">
-		<use href="/sprites.svg#rust" />
-	</svg>
-	Rust
-</Badge>
-{' on the backend and'}
-<Badge href="https://react.dev">
-	<svg role="img" width="16" height="16">
-		<use href="/sprites.svg#react" />
-	</svg>
-	React
-</Badge>
-{'on the frontend'}
-
-The desktop app works by using the Windows API to get information about the currently playing media from the Spotify app, but if I were to start over again I'd probably just use the Spotify API, even if this means that the app must need an internet connection to work.
-
-<span className="hidden [@media(min-width:400px)]:block">
-	It's currently not available for download, but you can try an example of what the UI is like above
-	(obviously without the draggable window) and of course you can also view the source code.
-</span>

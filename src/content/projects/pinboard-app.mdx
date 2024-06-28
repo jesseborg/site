@@ -30,16 +30,14 @@ thumbnailURL: /images/projects/pinboard-app_thumbnail.png
 	
 	<div className="flex w-full justify-center gap-2">
 		<StackIcon href="https://react.dev/" tooltip="React" />
-		<StackIcon href="https://tailwindcss.com/" tooltip="Tailwind" />
 		<StackIcon href="https://typescriptlang.org" tooltip="Typescript" />
+		<StackIcon href="https://tailwindcss.com/" tooltip="Tailwind" />
 	</div>
 </div>
 
 This is a small, lightweight infinite Pinboard application.
 
-My motivation stemmed from a personal challenge to minimize reliance on too many external libraries, but also because I wanted to challenge myself too see if I could even create them myself.
-
-The app is fully keyboard accessible, including arrow key navigation where needed (toolbars).
+The motivation for this project stemmed from a personal challenge to minimize reliance on _too many_ external libraries, but also because I wanted to challenge myself too see if I could even create them myself.
 
 Node data is currently stored client-side and persisted in local storage, with the help of **zustand**. Images are also stored client-side as Blob data with the help of a custom **IndexedDB** hook.
 

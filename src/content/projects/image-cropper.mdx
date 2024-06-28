@@ -6,13 +6,21 @@ headerURL: /images/projects/image-cropper_header.png
 thumbnailURL: /images/projects/image-cropper_thumbnail.png
 ---
 
-<div className="flex text-center text-sm [&>p]:m-0 justify-center">
-	<a target="_blank" href={`https://image-cropper-orpin.vercel.app/`}>Live Demo &#x2197;</a> |
-	<a target="_blank" href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/image-cropper`}>GitHub &#x2197;</a>
+<div class="space-y-4">
+	<div className="flex text-center text-sm [&>p]:m-0 justify-center">
+		<a target="_blank" href={`https://image-cropper-orpin.vercel.app/`}>Live Demo &#x2197;</a> |
+		<a target="_blank" href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/image-cropper`}>GitHub &#x2197;</a>
+	</div>
+	
+	<div className="flex w-full justify-center gap-2">
+		<StackIcon href="https://react.dev/" tooltip="React" />
+		<StackIcon href="https://typescriptlang.org/" tooltip="Typescript" />
+		<StackIcon href="https://tailwindcss.com/" tooltip="Tailwind" />
+	</div>
 </div>
 
-This is a web-based image cropping tool I created as a learning exercise to help better my skills with React. It has full keyboard access from uploading, cropping and downloading.
+This is a web-based image cropping tool I created as a learning exercise to improve my skills with React. It has full keyboard access from uploading, cropping and downloading.
 
-While creating this app I also used the [@use-gesture](https://use-gesture.netlify.app/) library for the first time and is actually what motivated me to create my own smaller <a target="_blank" href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/pinboard/blob/main/src/hooks/use-drag.tsx`}>useDrag</a> hook in my [Pinboard](/projects/pinboard-app) app
+While creating this app I also used the [@use-gesture](https://use-gesture.netlify.app/) library for the first time and is actually what motivated me to create my own smaller <a target="_blank" href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/pinboard/blob/main/src/hooks/use-drag.ts`}>useDrag</a> hook in my [Pinboard](/projects/pinboard-app) app
 
-The cropping and 'uploading' is done completely client side and even works completely offline with the support of a service worker.
+The cropping and "uploading" is done client-side, and the app works completely offline with the support of a service worker.
