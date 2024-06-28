@@ -1,15 +1,15 @@
-import { CurrentTime } from '@/components/current-time';
-import { GitHubRepos } from '@/components/github-repos';
-import { NextJSIcon, SuitcaseIcon, TerminalIcon } from '@/components/icons';
-import { ProjectCard } from '@/components/project-card';
-import { ProjectListItemSkeleton } from '@/components/project-list-item';
-import { Section } from '@/components/section';
-import { Tooltip } from '@/components/tooltip';
-import { getProjects } from '@/lib/projects';
-import { cn } from '@/lib/util';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Suspense, type PropsWithChildren } from 'react';
+import { CurrentTime } from "@/components/current-time";
+import { GitHubRepos } from "@/components/github-repos";
+import { NextJSIcon, SuitcaseIcon, TerminalIcon } from "@/components/icons";
+import { ProjectCard } from "@/components/project-card";
+import { ProjectListItemSkeleton } from "@/components/project-list-item";
+import { Section } from "@/components/section";
+import { Tooltip } from "@/components/tooltip";
+import { getProjects } from "@/lib/projects";
+import { cn } from "@/lib/util";
+import Image from "next/image";
+import Link from "next/link";
+import { Suspense, type PropsWithChildren } from "react";
 
 export default function Home() {
 	return (
@@ -24,15 +24,15 @@ export default function Home() {
 			<div className="space-y-4 text-base">
 				{/* Title */}
 				<h1 className="text-3xl font-bold">hey, im jesse</h1>
-
+				Name?: {process.env.VITE_VERCEL_GIT_REPO_OWNER}
 				{/* Introduction */}
 				<div className="prose !max-w-full leading-6 -tracking-[0.2px] text-theme-300 dark:prose-invert">
 					<p>
-						im a junior developer mainly interested in front-end web development, sometimes back-end
-						and software development.
+						im a junior developer mainly interested in front-end web
+						development, sometimes back-end and software development.
 					</p>
 					<p>
-						you can view the source for all my public projects on my{' '}
+						you can view the source for all my public projects on my{" "}
 						<a
 							className="no-underline"
 							href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
@@ -64,7 +64,10 @@ function ProjectsSection() {
 					<SuitcaseIcon />
 				</Section.Icon>
 				<Section.Title>projects</Section.Title>
-				<Section.Link className="group relative inline-flex gap-1" href="/projects">
+				<Section.Link
+					className="group relative inline-flex gap-1"
+					href="/projects"
+				>
 					see more <AnimatedRightArrow />
 				</Section.Link>
 			</Section.Header>
@@ -148,7 +151,7 @@ function TechStackSection() {
 export function StackIcon({
 	href,
 	tooltip,
-	children
+	children,
 }: PropsWithChildren<{ href: string; tooltip: string }>) {
 	return (
 		<Tooltip tooltip={tooltip}>
@@ -157,7 +160,7 @@ export function StackIcon({
 				target="_blank"
 				href={href}
 				className={
-					'rounded-md border-[0.5px] border-theme-50/10 bg-theme-900 p-[6px] text-theme-300 outline-offset-0 hover:bg-theme-800'
+					"rounded-md border-[0.5px] border-theme-50/10 bg-theme-900 p-[6px] text-theme-300 outline-offset-0 hover:bg-theme-800"
 				}
 			>
 				{!children && (
@@ -175,7 +178,7 @@ function NoiseGlow({ className }: { className: string }) {
 	return (
 		<span
 			className={cn(
-				'rendering-pixelated absolute -z-10 bg-[url(/noise.webp)] [mask-image:radial-gradient(black_30%,transparent_80%)]',
+				"rendering-pixelated absolute -z-10 bg-[url(/noise.webp)] [mask-image:radial-gradient(black_30%,transparent_80%)]",
 				className
 			)}
 		/>
