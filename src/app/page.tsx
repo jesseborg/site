@@ -9,7 +9,7 @@ import { getProjects } from '@/lib/projects';
 import { cn } from '@/lib/util';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PropsWithChildren, Suspense } from 'react';
+import { Suspense, type PropsWithChildren } from 'react';
 
 export default function Home() {
 	return (
@@ -160,7 +160,7 @@ export function StackIcon({
 					'rounded-md border-[0.5px] border-theme-50/10 bg-theme-900 p-[6px] text-theme-300 outline-offset-0 hover:bg-theme-800'
 				}
 			>
-				{!Boolean(children) && (
+				{!children && (
 					<svg role="img" width="16" height="16">
 						<use href={`/sprites.svg#${tooltip?.toLowerCase()}`} />
 					</svg>
