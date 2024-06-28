@@ -7,6 +7,22 @@ thumbnailURL: /images/projects/image-cropper_thumbnail.png
 ---
 
 <div class="space-y-4">
+	<video
+		loop
+		muted
+		autoPlay
+		playsInline
+		width="400"
+		height="400"
+		preload="auto"
+		className="sm:size-[400px] w-full mx-auto my-0 rounded-md"
+		alt="Short video demonstration of the Image Cropper app"
+	>
+		<source src="/media/image-cropper_demo_vp9.webm" type="video/webm; codecs=vp9" />
+		<source src="/media/image-cropper_demo_h264.mp4" type="video/mp4" />
+		Your browser does not support this video tag.
+	</video>
+
 	<div className="flex text-center text-sm [&>p]:m-0 justify-center">
 		<a target="_blank" href={`https://image-cropper-orpin.vercel.app/`}>Live Demo &#x2197;</a> |
 		<a target="_blank" href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/image-cropper`}>GitHub &#x2197;</a>
